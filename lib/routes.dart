@@ -1,6 +1,5 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:kiwi/core/constants/appRoutesNames.dart';
-import 'package:kiwi/test.dart';
 import 'package:kiwi/view/screens/OnBoardingScreen.dart';
 import 'package:kiwi/view/screens/auth/forgetPassword/forgetPassword.dart';
 import 'package:kiwi/view/screens/auth/login.dart';
