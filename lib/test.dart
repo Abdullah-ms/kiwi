@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:kiwi/core/constants/colors.dart';
 
+import 'core/functions/checkInternet.dart';
+
 class Test extends StatefulWidget {
   const Test({super.key});
 
@@ -10,14 +12,28 @@ class Test extends StatefulWidget {
 }
 
 class _TestState extends State<Test> {
+
+  late bool res ;
+  checkNet() async {
+    res = await checkInternet() ;
+    print(res);
+  }
+
+  @override
+  void initState() {
+    checkNet();
+    super.initState();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("test page"),
+        title: const Text("test page"),
       ),
       body: Container(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: ListView(
           children: [
             OtpTextField(

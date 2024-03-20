@@ -1,5 +1,6 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:kiwi/core/constants/appRoutesNames.dart';
+import 'package:kiwi/test.dart';
 import 'package:kiwi/view/screens/OnBoardingScreen.dart';
 import 'package:kiwi/view/screens/auth/forgetPassword/forgetPassword.dart';
 import 'package:kiwi/view/screens/auth/login.dart';
@@ -17,6 +18,7 @@ List<GetPage<dynamic>>? myGetPages = [
       name: "/",
       page: () => const Language(),
       middlewares: [MiddleWareOne()]),
+  // GetPage(name: "/", page: () => const Test()),
   GetPage(name: AppRoutes.onBoarding, page: () => const OnBoarding()),
   //Auth
   GetPage(name: AppRoutes.login, page: () => const Login()),
