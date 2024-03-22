@@ -23,7 +23,7 @@ class TestControllerImp extends TestController {
     print("========================");
     statusRequest = handlingData(response);
     if (statusRequest == StatusRequest.success) {
-      if(response['success'] == "success"){
+      if(response["status"] == "success"){
         data.addAll(response['data']);
       }else{
         statusRequest == StatusRequest.noData ;

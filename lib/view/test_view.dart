@@ -19,11 +19,7 @@ class TestView extends StatelessWidget {
           widget: ListView.builder(
               itemCount: controllerImp.data.length,
               itemBuilder: (context, index) {
-                return Column(
-                  children: [
-                    Text("${controllerImp.data}"),
-                  ],
-                );
+                return Text("${controllerImp.data}");
               }),
         );
       }),
