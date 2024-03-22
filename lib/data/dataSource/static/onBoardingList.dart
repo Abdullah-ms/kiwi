@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import '../classes/onBoarding.dart';
-import 'assetsImages.dart';
+import '../../../core/classes/onBoarding.dart';
+import '../../../core/constants/assetsImages.dart';
 
 
 List<OnBoardingModel> onBoardingList = [

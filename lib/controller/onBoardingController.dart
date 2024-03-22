@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:kiwi/core/constants/appRoutesNames.dart';
 import 'package:kiwi/core/services/services.dart';
-import '../core/constants/onBoardingList.dart';
+import '../data/dataSource/static/onBoardingList.dart';
 
 abstract class OnBoardingController extends GetxController {
   next();

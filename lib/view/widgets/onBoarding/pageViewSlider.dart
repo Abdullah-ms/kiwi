@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../controller/onBoardingController.dart';
 import '../../../core/constants/colors.dart';
-import '../../../core/constants/onBoardingList.dart';
+import '../../../data/dataSource/static/onBoardingList.dart';
 
 class PageViewSlider extends GetView<OnBoardingControllerImp> {
   const PageViewSlider({super.key});

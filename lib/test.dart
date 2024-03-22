@@ -30,7 +30,7 @@ class _TestState extends State<Test> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("test page"),
+        title:  Text("test page"),
       ),
       body: Container(
         padding: const EdgeInsets.all(20),
