@@ -25,10 +25,10 @@ class TestControllerImp extends TestController {
         print(response);
         data.addAll(response['data']);
       } else {
-        statusRequest == StatusRequest.noData;
+         statusRequest == StatusRequest.noData;
         print("======================================== status : failure");
         print(response);
-        print(statusRequest);
+        print("$statusRequest but no data found");
       }
     }
     update();

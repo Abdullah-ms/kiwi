@@ -14,11 +14,11 @@ import 'package:kiwi/view/test_view.dart';
 import 'core/middleware/middlewareOne.dart';
 
 List<GetPage<dynamic>>? myGetPages = [
-  /*  GetPage(
+    GetPage(
      name: "/",
       page: () => const Language(),
-      middlewares: [MiddleWareOne()]),*/
-   GetPage(name: "/", page: () => const TestView()),
+      middlewares: [MiddleWareOne()]),
+   // GetPage(name: "/", page: () => const TestView()),
   GetPage(name: AppRoutes.onBoarding, page: () => const OnBoarding()),
   //Auth
   GetPage(name: AppRoutes.login, page: () => const Login()),

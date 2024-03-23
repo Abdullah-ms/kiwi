@@ -6,4 +6,5 @@ enum StatusRequest {
   serverFailure ,
   // means no updates if it is insert, update or delete process , and it means noData if it's a view process
   noData ,
+  exceptionError,
 }
