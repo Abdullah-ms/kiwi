@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kiwi/controller/test_controller.dart';
+import 'package:kiwi/core/constants/colors.dart';
 import '../core/classes/handlingDataView.dart';
 
 class TestView extends StatelessWidget {
@@ -11,7 +12,8 @@ class TestView extends StatelessWidget {
     Get.put(TestControllerImp());
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Test View"),
+        title: const Text("page title",style: TextStyle(color: Colors.white),),
+        backgroundColor: AppColors.primaryColor,
       ),
       body: GetBuilder<TestControllerImp>(builder: (controllerImp) {
         return HandlingDataView(

@@ -18,15 +18,17 @@ class TestControllerImp extends TestController {
   getMyData() async {
     statusRequest = StatusRequest.loading;
     var response = await testData.getTestData();
-    print("==========controller==============");
-    print(response);
-    print("========================");
     statusRequest = handlingData(response);
-    if (statusRequest == StatusRequest.success) {
-      if(response["status"] == "success"){
+    if (StatusRequest.success == statusRequest ) {
+      if (response["status"] == "success") {
+        print("======================================== status : success");
+        print(response);
         data.addAll(response['data']);
-      }else{
-        statusRequest == StatusRequest.noData ;
+      } else {
+        statusRequest == StatusRequest.noData;
+        print("======================================== status : failure");
+        print(response);
+        print(statusRequest);
       }
     }
     update();
