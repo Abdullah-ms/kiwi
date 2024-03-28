@@ -32,7 +32,8 @@ class SignUpControllerImp extends SignUpController {
 
   //----------------------
   SignUpData signUpData = SignUpData(Get.find());
-  late StatusRequest statusRequest;
+  //نجعل المتغير يقبل الnull لكي لا يظهر error عند عمل loading في الview
+  StatusRequest? statusRequest;
 
   List signUpDataList = [];
 
@@ -48,6 +49,7 @@ class SignUpControllerImp extends SignUpController {
     FormState? formData = formState.currentState;
     if (formData!.validate()) {
       statusRequest = StatusRequest.loading;
+      update();
       var response = await signUpData.getSignUpData(
           username.text, email.text, phone.text, password.text);
       print("======================================== controller $response");
@@ -63,7 +65,8 @@ E/flutter ( 4479): [ERROR:flutter/runtime/dart_vm_initializer.cc(41)] Unhandled 
 E/flutter ( 4479): #0      SignUpControllerImp.signUp (package:kiwi/controller/auth/signUp_controller.dart:57:41)
 
          */
-          Get.offNamed(AppRoutes.verifyCodeSignUp);
+          Get.offNamed(AppRoutes.verifyCodeSignUp,
+              arguments: {"email": email.text});// لارسال الايميل الى صفحة الverifyCode
         } else {
           Get.defaultDialog(
               title: "Warning",

@@ -9,8 +9,11 @@ abstract class VerifyCodeSignUpController extends GetxController{
 class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
   late String verifyCode ;
 
+  String? email ;
+
   @override
   goToSuccessSignUp() {
+
     Get.offNamed(AppRoutes.successSignUp);
   }
 
@@ -21,6 +24,8 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
 
   @override
   void onInit() {
+    // لاستقبال الايميل وخزنه في المتغير email
+    email = Get.arguments["email"];
     super.onInit();
   }
 
