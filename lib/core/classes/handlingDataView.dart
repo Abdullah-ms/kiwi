@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kiwi/core/classes/statusRequest.dart';
-import 'package:kiwi/core/constants/colors.dart';
 import 'package:lottie/lottie.dart';
-
 import '../constants/assetsImages.dart';
 
 class HandlingDataView extends StatelessWidget {
