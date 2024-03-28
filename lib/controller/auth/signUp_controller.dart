@@ -52,7 +52,7 @@ class SignUpControllerImp extends SignUpController {
       update();
       var response = await signUpData.getSignUpData(
           username.text, email.text, phone.text, password.text);
-      print("======================================== controller $response");
+      print("==============this is signup to verify function ========================== controller $response");
       statusRequest = handlingData(response);
       if (statusRequest == StatusRequest.success) {
         if (response['status'] == "success") {
@@ -66,7 +66,8 @@ E/flutter ( 4479): #0      SignUpControllerImp.signUp (package:kiwi/controller/a
 
          */
           Get.offNamed(AppRoutes.verifyCodeSignUp,
-              arguments: {"email": email.text});// لارسال الايميل الى صفحة الverifyCode
+              arguments: {"email": email.text});
+          //  لارسال الايميل الى صفحة الverifyCode ومن ثم يتم ارساله مع الcode من صفحة الverify فيما بعد
         } else {
           Get.defaultDialog(
               title: "Warning",

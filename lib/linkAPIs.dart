@@ -4,5 +4,6 @@ class AppLinks {
   static const String test = "$server/test1.php";
   //================= Auth =======================
   static const String signUpAPI = "$server/auth/signup.php";
+  static const String verifyCodesSignupAPI = "$server/auth/verifycode.php";
   // static const String loginAPI = "$server/auth/signup.php";
 }

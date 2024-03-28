@@ -1,20 +1,40 @@
 import 'package:get/get.dart';
 import 'package:kiwi/core/constants/appRoutesNames.dart';
 
+import '../../core/classes/statusRequest.dart';
+import '../../core/functions/handlingData.dart';
+import '../../data/dataSource/remote/auth/verifyCodeSignUp.dart';
+
 abstract class VerifyCodeSignUpController extends GetxController{
   checkCode();
-  goToSuccessSignUp();
+  goToSuccessSignUp(String verificationCode);
 }
 
 class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
-  late String verifyCode ;
 
   String? email ;
 
-  @override
-  goToSuccessSignUp() {
+  VerifyCodeSignUpData verifyCodeSignUpData = VerifyCodeSignUpData(Get.find());
+  StatusRequest? statusRequest;
 
-    Get.offNamed(AppRoutes.successSignUp);
+  @override
+  goToSuccessSignUp(String verificationCode) async {
+    statusRequest = StatusRequest.loading;
+    update();
+    var response = await verifyCodeSignUpData.getVerifyCodeSignUpData(email! , verificationCode);
+    print("==================== this is verify to success signup ==================== controller $response");
+    statusRequest = handlingData(response);
+    if (statusRequest == StatusRequest.success) {
+      if (response['status'] == "success") {
+        Get.offNamed(AppRoutes.successSignUp);
+      } else {
+        Get.defaultDialog(
+            title: "Warning",
+            middleText: "Verify Code Not Correct");
+        statusRequest = StatusRequest.noData;
+      }
+    }
+    update();
   }
 
   @override
