@@ -21,7 +21,7 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
   goToSuccessSignUp(String verificationCode) async {
     statusRequest = StatusRequest.loading;
     update();
-    var response = await verifyCodeSignUpData.getVerifyCodeSignUpData(email! , verificationCode);
+    var response = await verifyCodeSignUpData.postVerifyCodeSignUpData(email! , verificationCode);
     print("==================== this is verify to success signup ==================== controller $response");
     statusRequest = handlingData(response);
     if (statusRequest == StatusRequest.success) {
@@ -30,7 +30,7 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
       } else {
         Get.defaultDialog(
             title: "Warning",
-            middleText: "Verify Code Not Correct");
+            middleText: "Invalid Verify Code");
         statusRequest = StatusRequest.noData;
       }
     }

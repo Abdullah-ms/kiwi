@@ -6,7 +6,7 @@ class SignUpData {
 
   SignUpData(this.crud);
 
-  getSignUpData(
+  postSignUpData(
       String username, String email, String phone, String password) async {
     var response = await crud.postRequest(AppLinks.signUpAPI, {
       "username": username,

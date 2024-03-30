@@ -1,6 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:kiwi/core/classes/statusRequest.dart';
 import 'package:kiwi/core/constants/appRoutesNames.dart';
+
+import '../../core/functions/handlingData.dart';
+import '../../data/dataSource/remote/auth/login_data.dart';
 
 abstract class LoginController extends GetxController {
   login();
@@ -24,6 +28,9 @@ class LoginControllerImp extends LoginController {
     update();
   }
 
+  LoginData loginData = LoginData(Get.find());
+  StatusRequest? statusRequest ;
+
   @override
   goToSignUp() {
     Get.offNamed(AppRoutes.signup);
@@ -35,12 +42,28 @@ class LoginControllerImp extends LoginController {
   }
 
   @override
-  login() {
+  login() async {
     FormState? formData = formState.currentState;
     if (formData!.validate()) {
-      print("valid");
+      statusRequest = StatusRequest.loading;
+      update();
+      var response = await loginData.getLoginData(
+          email.text, password.text);
+      print("==============this is login to homepage function ========================== controller $response");
+      statusRequest = handlingData(response);
+      if (statusRequest == StatusRequest.success) {
+        if (response['status'] == "success") {
+          Get.offNamed(AppRoutes.homePage);
+        } else {
+          Get.defaultDialog(
+              title: "Warning",
+              middleText: "Incorrect email or password");
+          statusRequest = StatusRequest.noData;
+        }
+      }
+      update();
     } else {
-      print("Not valid");
+
     }
   }
 

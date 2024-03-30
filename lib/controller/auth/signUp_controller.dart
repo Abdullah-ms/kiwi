@@ -50,7 +50,7 @@ class SignUpControllerImp extends SignUpController {
     if (formData!.validate()) {
       statusRequest = StatusRequest.loading;
       update();
-      var response = await signUpData.getSignUpData(
+      var response = await signUpData.postSignUpData(
           username.text, email.text, phone.text, password.text);
       print("==============this is signup to verify function ========================== controller $response");
       statusRequest = handlingData(response);
