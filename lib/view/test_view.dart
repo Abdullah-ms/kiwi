@@ -2,10 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kiwi/controller/test_controller.dart';
 import 'package:kiwi/core/constants/colors.dart';
+import 'package:kiwi/core/functions/checkInternet.dart';
 import '../core/classes/handlingDataView.dart';
 
-class TestView extends StatelessWidget {
-  const TestView({super.key});
+class TestView extends StatefulWidget {
+   const TestView({super.key});
+
+  @override
+  State<TestView> createState() => _TestViewState();
+}
+
+class _TestViewState extends State<TestView> {
+
+  var res ;
+
+  intialData()async {
+    res = await checkInternet();
+    print(res);
+  }
+
+   @override
+  void initState() {
+     intialData();
+    super.initState();
+  }
+
 
   @override
   Widget build(BuildContext context) {

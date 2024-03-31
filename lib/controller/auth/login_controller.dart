@@ -29,7 +29,7 @@ class LoginControllerImp extends LoginController {
   }
 
   LoginData loginData = LoginData(Get.find());
-  StatusRequest? statusRequest ;
+  StatusRequest statusRequest = StatusRequest.none;
 
   @override
   goToSignUp() {

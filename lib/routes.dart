@@ -19,7 +19,7 @@ List<GetPage<dynamic>>? myGetPages = [
      name: "/",
       page: () => const Language(),
       middlewares: [MiddleWareOne()]),
-   // GetPage(name: "/", page: () => const TestView()),
+  // GetPage(name: "/", page: () => const TestView()),
   GetPage(name: AppRoutes.onBoarding, page: () => const OnBoarding()),
   //Auth
   GetPage(name: AppRoutes.login, page: () => const Login()),

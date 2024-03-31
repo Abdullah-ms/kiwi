@@ -15,7 +15,7 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
   String? email ;
 
   VerifyCodeSignUpData verifyCodeSignUpData = VerifyCodeSignUpData(Get.find());
-  StatusRequest? statusRequest;
+  StatusRequest statusRequest = StatusRequest.none;
 
   @override
   goToSuccessSignUp(String verificationCode) async {

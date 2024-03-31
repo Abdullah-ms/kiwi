@@ -2,30 +2,41 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:kiwi/core/constants/appRoutesNames.dart';
 
-abstract class ForgetPasswordController extends GetxController{
+import '../../core/classes/statusRequest.dart';
+import '../../core/functions/handlingData.dart';
+import '../../data/dataSource/remote/auth/forgetPassword/checkEmail_data.dart';
+
+abstract class ForgetPasswordController extends GetxController {
   checkEmail();
-  goToVerifyCode();
 }
 
 class ForgetPasswordControllerImp extends ForgetPasswordController {
-
-  late TextEditingController email ;
+  late TextEditingController email;
 
   GlobalKey<FormState> formState = GlobalKey<FormState>();
 
-  @override
-  goToVerifyCode() {
-    // Get.offNamed(AppRoutes.verifyCode);
-  }
+  CheckEmailData checkEmailData = CheckEmailData(Get.find());
+  StatusRequest statusRequest = StatusRequest.none;
 
   @override
-  checkEmail() {
-    FormState? formData = formState.currentState ;
-    if(formData!.validate()){
-      Get.offNamed(AppRoutes.verifyCode);
-    }else{
-
-    }
+  checkEmail() async {
+    FormState? formData = formState.currentState;
+    if (formData!.validate()) {
+      statusRequest = StatusRequest.loading;
+      update();
+      var response = await checkEmailData.postCheckEmailData(email.text);
+      statusRequest = handlingData(response);
+      if (statusRequest == StatusRequest.success) {
+        if (response['status'] == "success") {
+          Get.offNamed(AppRoutes.verifyCode , arguments: {"email": email.text});
+        } else {
+          Get.defaultDialog(
+              title: "Warning", middleText: "this email not found");
+          statusRequest = StatusRequest.noData;
+        }
+      }
+      update();
+    } else {}
   }
 
   @override
@@ -39,5 +50,4 @@ class ForgetPasswordControllerImp extends ForgetPasswordController {
     email.dispose();
     super.dispose();
   }
-
 }

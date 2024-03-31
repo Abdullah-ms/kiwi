@@ -33,7 +33,7 @@ class SignUpControllerImp extends SignUpController {
   //----------------------
   SignUpData signUpData = SignUpData(Get.find());
   //نجعل المتغير يقبل الnull لكي لا يظهر error عند عمل loading في الview
-  StatusRequest? statusRequest;
+  StatusRequest statusRequest = StatusRequest.none;
 
   List signUpDataList = [];
 

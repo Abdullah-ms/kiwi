@@ -2,16 +2,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:kiwi/core/constants/appRoutesNames.dart';
 
+import '../../core/classes/statusRequest.dart';
+import '../../core/functions/handlingData.dart';
+import '../../data/dataSource/remote/auth/forgetPassword/resetPassword_data.dart';
+
 abstract class ResetPasswordController extends GetxController{
-  resetPassword();
   goToSuccessResetPassword();
-  goToLogin();
 }
 
 class ResetPasswordControllerImp extends ResetPasswordController {
 
   late TextEditingController password ;
-  late TextEditingController repassword ;
+  late TextEditingController rePassword ;
 
   GlobalKey<FormState> formState = GlobalKey<FormState>();
 
@@ -21,39 +23,54 @@ class ResetPasswordControllerImp extends ResetPasswordController {
     update();
   }
 
-
-  @override
-  goToSuccessResetPassword() {
-    Get.offNamed(AppRoutes.successReset);
-  }
+  String? email ;
+  ResetPasswordData resetPasswordData = ResetPasswordData(Get.find());
+  StatusRequest statusRequest = StatusRequest.none ;
 
 
   @override
-  goToLogin() {
-    // Get.offNamed(AppRoutes.login);
-  }
+  goToSuccessResetPassword() async {
 
-  @override
-  resetPassword() {
+    if(password.text != rePassword.text){
+     return Get.defaultDialog(
+          title: "Warning",
+          middleText: "password not matched");
+    }
+
     var formData = formState.currentState;
     if(formData!.validate()){
-      Get.offNamed(AppRoutes.successReset);
+      statusRequest = StatusRequest.loading;
+      update();
+        var response = await resetPasswordData.postResetPasswordData(
+            email!, password.text);
+        statusRequest = handlingData(response);
+        if (statusRequest == StatusRequest.success) {
+          if (response['status'] == "success") {
+            Get.offNamed(AppRoutes.successReset);
+          } else {
+            statusRequest = StatusRequest.noData;
+          }
+        }
+        update();
     }else{
-
+      Get.defaultDialog(
+          title: "Warning",
+          middleText: "Try again");
     }
   }
 
   @override
   void onInit() {
+    email = Get.arguments["email"];
     password = TextEditingController();
-    repassword = TextEditingController();
+    rePassword = TextEditingController();
     super.onInit();
   }
 
   @override
   void dispose() {
     password.dispose();
-    repassword.dispose();
+    rePassword.dispose();
     super.dispose();
   }
 

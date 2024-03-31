@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-validInput(String val, int max, int min, String type) {
+validInput(String val, int max, int min, String? type) {
   if (type == "username") {
     if (!GetUtils.isUsername(val)) {
       return "Invalid username";
