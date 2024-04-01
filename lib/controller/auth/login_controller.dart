@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:kiwi/core/classes/statusRequest.dart';
 import 'package:kiwi/core/constants/appRoutesNames.dart';
-
 import '../../core/functions/handlingData.dart';
+import '../../core/services/services.dart';
 import '../../data/dataSource/remote/auth/login_data.dart';
 
 abstract class LoginController extends GetxController {
@@ -31,6 +31,8 @@ class LoginControllerImp extends LoginController {
   LoginData loginData = LoginData(Get.find());
   StatusRequest statusRequest = StatusRequest.none;
 
+  MyServices myServices = Get.find();
+
   @override
   goToSignUp() {
     Get.offNamed(AppRoutes.signup);
@@ -53,6 +55,12 @@ class LoginControllerImp extends LoginController {
       statusRequest = handlingData(response);
       if (statusRequest == StatusRequest.success) {
         if (response['status'] == "success") {
+          //يتم خزن بيانات اليوزر بالكاش عند تسجيل الدخول
+          myServices.sharedPreferences.setString("id", response['data']['users_id'].toString());
+          myServices.sharedPreferences.setString("username", response['data']['users_name']);
+          myServices.sharedPreferences.setString("email", response['data']['users_email']);
+          myServices.sharedPreferences.setString("phone", response['data']['users_phone']);
+          myServices.sharedPreferences.setString("step", "2");
           Get.offNamed(AppRoutes.homePage);
         } else {
           Get.defaultDialog(
