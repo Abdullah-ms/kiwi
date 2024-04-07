@@ -1,23 +1,43 @@
 import 'package:get/get.dart';
-import 'package:kiwi/core/services/services.dart';
+import '../core/classes/statusRequest.dart';
+import '../core/functions/handlingData.dart';
+import '../data/dataSource/remote/home_data.dart';
 
 abstract class HomeController extends GetxController {
-
+  getData();
 }
 
 class HomeControllerImp extends HomeController {
 
-  MyServices myServices = Get.find();
+  HomeData homeData = HomeData(Get.find());
 
-  String? email ;
+  List dataCategories = [];
+  List dataItems = [];
 
-  initialData(){
-    email = myServices.sharedPreferences.getString("email");
+  late StatusRequest statusRequest;
+
+  @override
+  getData() async {
+    statusRequest = StatusRequest.loading;
+    var response = await homeData.getHomeData();
+    print("===================================================== $response") ;
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      if (response["status"] == "success") {
+        dataCategories.addAll(response['categories']);
+        dataItems.addAll(response['items']);
+      } else {
+        statusRequest == StatusRequest.noData;
+      }
+    }
+    update();
   }
 
   @override
   void onInit() {
-    initialData();
+    getData();
     super.onInit();
   }
+
+
 }
