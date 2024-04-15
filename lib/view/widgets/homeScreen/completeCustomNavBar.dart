@@ -11,7 +11,7 @@ class CompleteCustomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeScreenControllerImp>(builder: (controller) => BottomAppBar(
-      color: AppColors.primaryColor.withOpacity(0.4),
+      color: AppColors.primaryColor,
       shape: const CircularNotchedRectangle(),
       notchMargin: 10,
       child: Row(

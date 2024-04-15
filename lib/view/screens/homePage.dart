@@ -7,8 +7,8 @@ import 'package:kiwi/linkAPIs.dart';
 import 'package:kiwi/view/widgets/home/customHomeTitle.dart';
 import '../../controller/homePage_controller.dart';
 import '../widgets/home/bannerCard.dart';
-import '../widgets/home/customAppBar.dart';
-import '../widgets/home/listOfCategories.dart';
+import '../widgets/customAppBar.dart';
+import '../widgets/home/ListOfHomePageCategories.dart';
 import '../widgets/home/listOfNewItems.dart';
 
 class HomePage extends StatelessWidget {
@@ -34,7 +34,7 @@ class HomePage extends StatelessWidget {
                   subTitle: 'Discount +40%',
                 ),
                 const CustomHomeTitle(title: "Categories"),
-                const ListOfCategories(),
+                const ListOfHomePageCategories(),
                 const CustomHomeTitle(title: "New Meals"),
                 const ListOfNewItems(),
                 const CustomHomeTitle(title: "Top Seals"),

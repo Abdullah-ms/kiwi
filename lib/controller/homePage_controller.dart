@@ -1,10 +1,12 @@
 import 'package:get/get.dart';
+import 'package:kiwi/core/constants/appRoutesNames.dart';
 import '../core/classes/statusRequest.dart';
 import '../core/functions/handlingData.dart';
 import '../data/dataSource/remote/home_data.dart';
 
 abstract class HomeController extends GetxController {
   getData();
+  goToItems(List categories , int selectedCat);
 }
 
 class HomeControllerImp extends HomeController {
@@ -37,6 +39,14 @@ class HomeControllerImp extends HomeController {
   void onInit() {
     getData();
     super.onInit();
+  }
+
+  @override
+  goToItems(categories , selectedCat) {
+    Get.toNamed(AppRoutes.items , arguments : {
+      "categories" : categories ,
+      "selectedCat" :  selectedCat
+    });
   }
 
 

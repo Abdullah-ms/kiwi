@@ -16,13 +16,13 @@ class HomeScreen extends StatelessWidget {
       builder: (controller) => Scaffold(
         floatingActionButton: FloatingActionButton(
           elevation: 0,
-          backgroundColor: AppColors.primaryColor.withOpacity(0.5),
+          backgroundColor: AppColors.forthColor,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
           onPressed: () {},
           child: Icon(
             Icons.shopping_cart_outlined,
-            color: AppColors.forthColor,
+            color: AppColors.white,
           ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

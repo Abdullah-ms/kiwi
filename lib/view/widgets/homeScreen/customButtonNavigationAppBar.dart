@@ -18,7 +18,7 @@ class CustomButtonNavigationAppBar extends StatelessWidget {
       onPressed: onPressed,
       child: Icon(
         icon,
-        color: activeColor == true ? AppColors.forthColor : AppColors.secondaryColor,
+        color: activeColor == true ? AppColors.forthColor : AppColors.white,
       ),
     );
   }
