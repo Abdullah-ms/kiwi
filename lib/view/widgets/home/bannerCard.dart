@@ -1,6 +1,8 @@
  import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:kiwi/controller/homePage_controller.dart';
 import '../../../core/constants/colors.dart';
-class BannerCard extends StatelessWidget {
+class BannerCard extends GetView<HomeControllerImp> {
   final String title ;
   final String subTitle ;
   const BannerCard({super.key, required this.title, required this.subTitle});
@@ -31,7 +33,8 @@ class BannerCard extends StatelessWidget {
            ),
            Positioned(
              bottom: -50,
-             right: -50,
+             right: controller.lang == "en" ? -50 : null,
+             left: controller.lang == "ar" ? -50 : null,
              child: Container(
                height: 160,
                width: 160,

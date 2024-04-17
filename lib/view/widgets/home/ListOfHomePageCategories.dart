@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:kiwi/controller/homePage_controller.dart';
 import '../../../core/constants/colors.dart';
+import '../../../core/functions/translateDatabase.dart';
 import '../../../data/model/categoriesModel.dart';
 import '../../../linkAPIs.dart';
 
@@ -57,7 +58,7 @@ class CategoriesUsingModel extends GetView<HomeControllerImp> {
             ),
           ),
           Text(
-            "${categoriesModel.categoriesName}",
+            "${translateDatabase(categoriesModel.categoriesName , categoriesModel.categoriesNameAr)}",
             style: TextStyle(color: AppColors.blackIntermediate, fontSize: 14),
           ),
         ],

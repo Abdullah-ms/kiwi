@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:kiwi/core/constants/appRoutesNames.dart';
+import 'package:kiwi/data/model/itemsModel.dart';
 
 import '../core/classes/statusRequest.dart';
 import '../core/functions/handlingData.dart';
@@ -8,6 +10,7 @@ abstract class ItemsController extends GetxController {
   initialData();
   changeCat(int newCat);
   getData(int requestCatId);
+  goToProducts(ItemsModel itemsModel);
 }
 
 class ItemsControllerImp extends ItemsController {
@@ -65,6 +68,13 @@ class ItemsControllerImp extends ItemsController {
     selectedCat = newCat ;
     getData(newCat+1);
     update();
+  }
+
+  @override
+  goToProducts(itemsModel) {
+    Get.toNamed(AppRoutes.products , arguments: {
+      "itemsModel" : itemsModel ,
+    });
   }
 
 }

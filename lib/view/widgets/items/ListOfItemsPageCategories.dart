@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kiwi/controller/itemsController.dart';
 import '../../../core/constants/colors.dart';
+import '../../../core/functions/translateDatabase.dart';
 import '../../../data/model/categoriesModel.dart';
 
 class ListOfItemsPageCategories extends GetView<ItemsControllerImp> {
@@ -56,7 +57,7 @@ class CategoriesUsingModel extends GetView<ItemsControllerImp> {
             )
                 : null,
             child: Text(
-              "${categoriesModel.categoriesName}",
+              "${translateDatabase(categoriesModel.categoriesName , categoriesModel.categoriesNameAr)}",
               style: TextStyle(color: AppColors.secondaryColor, fontSize: 20),
             ),
           ),),

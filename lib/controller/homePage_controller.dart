@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:kiwi/core/constants/appRoutesNames.dart';
+import 'package:kiwi/core/services/services.dart';
 import '../core/classes/statusRequest.dart';
 import '../core/functions/handlingData.dart';
 import '../data/dataSource/remote/home_data.dart';
@@ -7,9 +8,14 @@ import '../data/dataSource/remote/home_data.dart';
 abstract class HomeController extends GetxController {
   getData();
   goToItems(List categories , int selectedCat);
+  initialData();
 }
 
 class HomeControllerImp extends HomeController {
+
+
+  MyServices myServices = Get.find();
+  String? lang ;
 
   HomeData homeData = HomeData(Get.find());
 
@@ -37,9 +43,16 @@ class HomeControllerImp extends HomeController {
 
   @override
   void onInit() {
+    initialData();
     getData();
     super.onInit();
   }
+
+  @override
+  initialData() {
+    lang = myServices.sharedPreferences.getString("lang");
+  }
+
 
   @override
   goToItems(categories , selectedCat) {
@@ -48,6 +61,7 @@ class HomeControllerImp extends HomeController {
       "selectedCat" :  selectedCat
     });
   }
+
 
 
 }

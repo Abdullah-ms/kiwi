@@ -5,16 +5,19 @@ import 'package:kiwi/controller/itemsController.dart';
 import 'package:kiwi/core/classes/handlingDataView.dart';
 import 'package:kiwi/data/model/itemsModel.dart';
 import '../../../core/constants/colors.dart';
+import '../../../core/functions/translateDatabase.dart';
 import '../../../linkAPIs.dart';
 
-class CustomItemsList extends StatelessWidget {
+class CustomItemsList extends GetView<ItemsControllerImp> {
   final ItemsModel itemsModel;
-
   const CustomItemsList({super.key, required this.itemsModel});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      onTap: (){
+        controller.goToProducts(itemsModel);
+      },
       child: Card(
         child: Padding(
           padding: const EdgeInsets.all(10),
@@ -22,20 +25,23 @@ class CustomItemsList extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              CachedNetworkImage(
-                height: 80,
-                width: 80,
-                fit: BoxFit.fill,
-                imageUrl: "${AppLinks.imagesItems}/${itemsModel.itemsImages}",
-                placeholder: (context, url) =>
-                    const CircularProgressIndicator(),
-                errorWidget: (context, url, error) => const Icon(Icons.error),
+              Hero(
+                tag: "${itemsModel.itemsId}",
+                child: CachedNetworkImage(
+                  height: 80,
+                  width: 80,
+                  fit: BoxFit.fill,
+                  imageUrl: "${AppLinks.imagesItems}/${itemsModel.itemsImages}",
+                  placeholder: (context, url) =>
+                      const CircularProgressIndicator(),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                ),
               ),
               const SizedBox(
                 height: 20,
               ),
               Text(
-                "${itemsModel.itemsName}",
+                "${translateDatabase(itemsModel.itemsName , itemsModel.itemsNameAr)}",
                 style: TextStyle(
                     color: AppColors.black,
                     fontSize: 16,
