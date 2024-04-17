@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kiwi/core/classes/handlingDataView.dart';
-import 'package:kiwi/core/constants/colors.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:kiwi/linkAPIs.dart';
 import 'package:kiwi/view/widgets/home/customHomeTitle.dart';
 import '../../controller/homePage_controller.dart';
 import '../widgets/home/bannerCard.dart';
