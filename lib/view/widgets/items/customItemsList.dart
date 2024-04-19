@@ -4,18 +4,23 @@ import 'package:get/get.dart';
 import 'package:kiwi/controller/itemsController.dart';
 import 'package:kiwi/core/classes/handlingDataView.dart';
 import 'package:kiwi/data/model/itemsModel.dart';
+import '../../../controller/favorite_controller.dart';
 import '../../../core/constants/colors.dart';
 import '../../../core/functions/translateDatabase.dart';
 import '../../../linkAPIs.dart';
 
 class CustomItemsList extends GetView<ItemsControllerImp> {
   final ItemsModel itemsModel;
-  const CustomItemsList({super.key, required this.itemsModel});
+
+  const CustomItemsList({
+    super.key,
+    required this.itemsModel,
+  });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
+      onTap: () {
         controller.goToProducts(itemsModel);
       },
       child: Card(
@@ -41,7 +46,7 @@ class CustomItemsList extends GetView<ItemsControllerImp> {
                 height: 20,
               ),
               Text(
-                "${translateDatabase(itemsModel.itemsName , itemsModel.itemsNameAr)}",
+                "${translateDatabase(itemsModel.itemsName, itemsModel.itemsNameAr)}",
                 style: TextStyle(
                     color: AppColors.black,
                     fontSize: 16,
@@ -79,10 +84,21 @@ class CustomItemsList extends GetView<ItemsControllerImp> {
                         fontWeight: FontWeight.bold,
                         fontFamily: "sans"),
                   ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.favorite_border_outlined),
-                  )
+                  GetBuilder<FavoriteControllerImp>(
+                      builder: (favController) => IconButton(
+                          onPressed: () {
+                           if(favController.isFavorite[itemsModel.itemsId] == 1){
+                             favController.setFavorite(itemsModel.itemsId, 0);
+                           }else{
+                             favController.setFavorite(itemsModel.itemsId, 1);
+                           }
+                          },
+                          icon: Icon(
+                            favController.isFavorite[itemsModel.itemsId] == 1
+                                ? Icons.favorite
+                                : Icons.favorite_border_outlined,
+                            color: AppColors.primaryColor,
+                          )))
                 ],
               )
             ],
