@@ -15,14 +15,14 @@ abstract class ItemsController extends GetxController {
 
 class ItemsControllerImp extends ItemsController {
 
-  MyServices myServices = Get.find();
+
 
   List categories = [] ;
   int? selectedCat ;
   late String userId ;
 
   ItemsData itemsData = ItemsData(Get.find());
-
+  MyServices myServices = Get.find();
   List itemsList = [];
 
   late StatusRequest statusRequest;

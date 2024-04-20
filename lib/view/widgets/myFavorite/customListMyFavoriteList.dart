@@ -1,27 +1,23 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:kiwi/controller/itemsController.dart';
-import 'package:kiwi/core/classes/handlingDataView.dart';
-import 'package:kiwi/data/model/itemsModel.dart';
-import '../../../controller/favorite_controller.dart';
+import 'package:kiwi/data/model/myFavoriteModel.dart';
 import '../../../core/constants/colors.dart';
 import '../../../core/functions/translateDatabase.dart';
 import '../../../linkAPIs.dart';
 
-class CustomItemsList extends GetView<ItemsControllerImp> {
-  final ItemsModel itemsModel;
+class CustomMyFavoriteList extends StatelessWidget {
+  final MyFavoriteModel myFavoriteModel;
 
-  const CustomItemsList({
+  const CustomMyFavoriteList({
     super.key,
-    required this.itemsModel,
+    required this.myFavoriteModel,
   });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        controller.goToProducts(itemsModel);
+       // controller.goToProducts(myFavoriteModel);
       },
       child: Card(
         child: Padding(
@@ -31,12 +27,12 @@ class CustomItemsList extends GetView<ItemsControllerImp> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Hero(
-                tag: "${itemsModel.itemsId}",
+                tag: "${myFavoriteModel.itemsId}",
                 child: CachedNetworkImage(
                   height: 80,
                   width: 80,
                   fit: BoxFit.fill,
-                  imageUrl: "${AppLinks.imagesItems}/${itemsModel.itemsImages}",
+                  imageUrl: "${AppLinks.imagesItems}/${myFavoriteModel.itemsImages}",
                   placeholder: (context, url) =>
                   const CircularProgressIndicator(),
                   errorWidget: (context, url, error) => const Icon(Icons.error),
@@ -47,7 +43,7 @@ class CustomItemsList extends GetView<ItemsControllerImp> {
               ),
               Text(
                 "${translateDatabase(
-                    itemsModel.itemsName, itemsModel.itemsNameAr)}",
+                    myFavoriteModel.itemsName, myFavoriteModel.itemsNameAr)}",
                 style: TextStyle(
                     color: AppColors.black,
                     fontSize: 16,
@@ -79,32 +75,32 @@ class CustomItemsList extends GetView<ItemsControllerImp> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "${itemsModel.itemsPrice}",
+                    "${myFavoriteModel.itemsPrice}",
                     style: TextStyle(
                         color: AppColors.secondaryColor,
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                         fontFamily: "sans"),
                   ),
-                  GetBuilder<FavoriteControllerImp>(
+                  /*GetBuilder<FavoriteControllerImp>(
                     builder: (favController) =>
                         IconButton(
                           onPressed: () {
-                            if (favController.isFavorite[itemsModel.itemsId] ==
+                            if (favController.isFavorite[myFavoriteModel.itemsId] ==
                                 1) {
-                              favController.setFavorite(itemsModel.itemsId, 0);
-                              favController.removeFavorite(itemsModel.itemsId.toString());
+                              favController.setFavorite(myFavoriteModel.itemsId, 0);
+                              favController.removeFavorite(myFavoriteModel.itemsId.toString());
                             } else {
-                              favController.setFavorite(itemsModel.itemsId, 1);
-                              favController.addFavorite(itemsModel.itemsId.toString());
+                              favController.setFavorite(myFavoriteModel.itemsId, 1);
+                              favController.addFavorite(myFavoriteModel.itemsId.toString());
                             }
                           },
                           icon: Icon(
-                            favController.isFavorite[itemsModel.itemsId] == 1
+                            favController.isFavorite[myFavoriteModel.itemsId] == 1
                                 ? Icons.favorite
                                 : Icons.favorite_border_outlined,
                             color: AppColors.primaryColor,
-                          ),),)
+                          ),),)*/
                 ],
               )
             ],

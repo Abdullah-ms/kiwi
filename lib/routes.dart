@@ -13,6 +13,7 @@ import 'package:kiwi/view/screens/homePage.dart';
 import 'package:kiwi/view/screens/homeScreen.dart';
 import 'package:kiwi/view/screens/items.dart';
 import 'package:kiwi/view/screens/language.dart';
+import 'package:kiwi/view/screens/myFavorite.dart';
 import 'package:kiwi/view/screens/products.dart';
 import 'package:kiwi/view/test_view.dart';
 import 'core/middleware/middlewareOne.dart';
@@ -36,4 +37,5 @@ List<GetPage<dynamic>>? myGetPages = [
   GetPage(name: AppRoutes.homePage, page: () => const HomeScreen()),
   GetPage(name: AppRoutes.items, page: () => const Items()),
   GetPage(name: AppRoutes.products, page: () => const Products()),
+  GetPage(name: AppRoutes.myFavorite, page: () => const MyFavorite()),
 ];

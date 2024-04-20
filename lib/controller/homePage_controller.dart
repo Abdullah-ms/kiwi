@@ -9,6 +9,7 @@ abstract class HomeController extends GetxController {
   getData();
   goToItems(List categories , int selectedCat);
   initialData();
+  goToMyFavorite();
 }
 
 class HomeControllerImp extends HomeController {
@@ -28,7 +29,7 @@ class HomeControllerImp extends HomeController {
   getData() async {
     statusRequest = StatusRequest.loading;
     var response = await homeData.getHomeData();
-    print("===================================================== $response") ;
+    // print("===================================================== $response") ;
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response["status"] == "success") {
@@ -62,6 +63,9 @@ class HomeControllerImp extends HomeController {
     });
   }
 
-
+  @override
+  goToMyFavorite() {
+    Get.toNamed(AppRoutes.myFavorite);
+  }
 
 }

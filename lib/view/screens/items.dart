@@ -28,7 +28,7 @@ class Items extends StatelessWidget {
             CustomAppBar(
               titleAppBar: 'Search...',
               onPressedSearch: () {},
-              onPressedNotification: () {},
+              onPressedNotification: () {}, onPressedFavorite: () {  },
             ),
             const SizedBox(
               height: 20,
