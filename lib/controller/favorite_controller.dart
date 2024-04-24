@@ -47,7 +47,8 @@ class FavoriteControllerImp extends FavoriteController {
           ),
         );
       } else {
-        statusRequest == StatusRequest.noData;
+        // الخطأ كان انك مستخدم == وليس = وبالتالي تكون مقارنة وليس اسناد قيمة في حال ال statusRequest = StatusRequest.noData;
+        statusRequest = StatusRequest.noData;
       }
     }
     // لا احتاج عمل update لانه لا يوجد تحديث لل UI
@@ -66,12 +67,13 @@ class FavoriteControllerImp extends FavoriteController {
         Get.rawSnackbar(
           title: "Alert",
           messageText: Text(
-            "Removed from favorites",
+            "Canceled from favorites",
             style: TextStyle(color: AppColors.white),
           ),
         );
       } else {
-        statusRequest == StatusRequest.noData;
+        // الخطأ كان انك مستخدم == وليس = وبالتالي تكون مقارنة وليس اسناد قيمة في حال ال statusRequest = StatusRequest.noData;
+        statusRequest = StatusRequest.noData;
       }
     }
     // لا احتاج عمل update لانه لا يوجد تحديث لل UI

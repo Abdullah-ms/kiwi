@@ -6,8 +6,8 @@ import '../../core/functions/handlingData.dart';
 import '../../data/dataSource/remote/auth/verifyCodeSignUp.dart';
 
 abstract class VerifyCodeSignUpController extends GetxController{
-  checkCode();
   goToSuccessSignUp(String verificationCode);
+  resendVerifyCode();
 }
 
 class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
@@ -38,8 +38,8 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
   }
 
   @override
-  checkCode() {
-
+  resendVerifyCode() {
+    verifyCodeSignUpData.resendVerifyCodeSignUpData(email!);
   }
 
   @override

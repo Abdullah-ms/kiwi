@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kiwi/core/classes/handlingDataView.dart';
 import 'package:kiwi/core/constants/appRoutesNames.dart';
+import 'package:kiwi/core/services/services.dart';
 import 'package:kiwi/view/widgets/home/customHomeTitle.dart';
 import '../../controller/homePage_controller.dart';
 import '../widgets/home/bannerCard.dart';

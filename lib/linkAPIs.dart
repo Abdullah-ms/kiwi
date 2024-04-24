@@ -17,6 +17,7 @@ class AppLinks {
   static const String signUpAPI = "$server/auth/signup.php";
   static const String verifyCodesSignupAPI = "$server/auth/verifycode.php";
   static const String loginAPI = "$server/auth/login.php";
+  static const String resendVerifyCode = "$server/auth/resendVerifyCode.php";
   //================= Forget Password =======================
   static const String checkEmailAPI = "$server/forgetpassword/checkemail.php";
   static const String resetPasswordAPI = "$server/forgetpassword/resetpassword.php";
@@ -29,4 +30,5 @@ class AppLinks {
   static const String favoriteAdd = "$server/favorite/add.php";
   static const String favoriteRemove = "$server/favorite/remove.php";
   static const String favoriteView = "$server/favorite/view.php";
+  static const String favoriteDelete = "$server/favorite/deleteFromFavorite.php";
 }

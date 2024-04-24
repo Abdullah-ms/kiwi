@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kiwi/core/classes/statusRequest.dart';
 import 'package:kiwi/core/constants/appRoutesNames.dart';
@@ -71,7 +72,8 @@ E/flutter ( 4479): #0      SignUpControllerImp.signUp (package:kiwi/controller/a
         } else {
           Get.defaultDialog(
               title: "Warning",
-              middleText: "phone number or email already exist");
+              middleText: "phone number or email already exist",
+          );
           statusRequest = StatusRequest.noData;
         }
       }

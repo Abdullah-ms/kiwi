@@ -25,7 +25,8 @@ class TestControllerImp extends TestController {
         print(response);
         data.addAll(response['data']);
       } else {
-         statusRequest == StatusRequest.noData;
+        // الخطأ كان انك مستخدم == وليس = وبالتالي تكون مقارنة وليس اسناد قيمة في حال ال statusRequest = StatusRequest.noData;
+         statusRequest = StatusRequest.noData;
         print("======================================== status : failure");
         print(response);
         print("$statusRequest but no data found");

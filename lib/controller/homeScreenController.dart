@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kiwi/view/screens/homePage.dart';
 
+import '../view/screens/myFavorite.dart';
+
 abstract class HomeScreenController extends GetxController {
   changePage(int indexOfPage);
 }
@@ -12,9 +14,13 @@ class HomeScreenControllerImp extends HomeScreenController{
 
   List<Widget> pagesList =[
     const HomePage(),
-    const Column(children: [Center(child: Text("Favorate"),)],),
-    const Column(children: [Center(child: Text("orders"),)],),
-    const Column(children: [Center(child: Text("profile"),)],),
+    const MyFavorite(),
+    const Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [Center(child: Text("orders"),)],),
+    const Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [Center(child: Text("profile"),)],),
   ];
 
   List iconsList =[

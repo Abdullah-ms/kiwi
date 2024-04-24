@@ -1,11 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:kiwi/controller/myFavoriteController.dart';
 import 'package:kiwi/data/model/myFavoriteModel.dart';
 import '../../../core/constants/colors.dart';
 import '../../../core/functions/translateDatabase.dart';
 import '../../../linkAPIs.dart';
 
-class CustomMyFavoriteList extends StatelessWidget {
+class CustomMyFavoriteList extends GetView<MyFavoriteControllerImp> {
   final MyFavoriteModel myFavoriteModel;
 
   const CustomMyFavoriteList({
@@ -82,25 +84,10 @@ class CustomMyFavoriteList extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                         fontFamily: "sans"),
                   ),
-                  /*GetBuilder<FavoriteControllerImp>(
-                    builder: (favController) =>
-                        IconButton(
-                          onPressed: () {
-                            if (favController.isFavorite[myFavoriteModel.itemsId] ==
-                                1) {
-                              favController.setFavorite(myFavoriteModel.itemsId, 0);
-                              favController.removeFavorite(myFavoriteModel.itemsId.toString());
-                            } else {
-                              favController.setFavorite(myFavoriteModel.itemsId, 1);
-                              favController.addFavorite(myFavoriteModel.itemsId.toString());
-                            }
-                          },
-                          icon: Icon(
-                            favController.isFavorite[myFavoriteModel.itemsId] == 1
-                                ? Icons.favorite
-                                : Icons.favorite_border_outlined,
-                            color: AppColors.primaryColor,
-                          ),),)*/
+                  IconButton(onPressed: (){
+                    controller.deleteFromMyFavorite(myFavoriteModel.favoriteId!);
+                  }, icon: const Icon(Icons.remove_circle_outline_rounded),
+                    color: AppColors.primaryColor,)
                 ],
               )
             ],

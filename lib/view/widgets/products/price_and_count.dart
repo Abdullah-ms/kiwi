@@ -33,7 +33,7 @@ class PriceAndCountOfProduct extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10)),
               child: Text(
                 count,
-                style: const TextStyle(fontSize: 20),
+                style: const TextStyle(fontSize: 20, fontFamily: "sans"),
               ),
             ),
             IconButton(onPressed: () {}, icon: const Icon(Icons.remove)),
@@ -45,8 +45,7 @@ class PriceAndCountOfProduct extends StatelessWidget {
           style: Theme.of(context)
               .textTheme
               .bodyMedium!
-              .copyWith(color: AppColors.primaryColor, fontSize: 20),
-        ),
+              .copyWith(color: AppColors.primaryColor, fontSize: 20 ,fontFamily: "sans"),),
       ],
     );
   }

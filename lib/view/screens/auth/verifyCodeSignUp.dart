@@ -5,6 +5,7 @@ import 'package:kiwi/core/classes/handlingDataView.dart';
 import 'package:kiwi/core/classes/statusRequest.dart';
 import '../../../../core/constants/colors.dart';
 import '../../../controller/auth/verfyCodeSignUp_controller.dart';
+import '../../widgets/auth/customButtonAuth.dart';
 
 class VerifyCodeSignUp extends StatelessWidget {
   const VerifyCodeSignUp({super.key});
@@ -45,8 +46,8 @@ class VerifyCodeSignUp extends StatelessWidget {
                         const SizedBox(
                           height: 25,
                         ),
-                        const Text(
-                          'please enter the digits code sent to example@gmail.com',
+                         Text(
+                          'please enter the digits code sent to ${controllerImp.email}',
                           textAlign: TextAlign.center,
                         ),
                         const SizedBox(
@@ -65,6 +66,15 @@ class VerifyCodeSignUp extends StatelessWidget {
                           onSubmit: (String verificationCode) {
                             controllerImp.goToSuccessSignUp(verificationCode);
                           }, // end onSubmit
+                        ),
+                        const SizedBox(
+                          height: 40,
+                        ),
+                        CustomAuthButton(
+                          textButton: 'Resend  VerifyCode',
+                          onPressed: () {
+                            controllerImp.resendVerifyCode();
+                          },
                         ),
                       ],
                     ),

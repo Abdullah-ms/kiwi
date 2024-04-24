@@ -1,11 +1,16 @@
 import 'package:get/get.dart';
 import '../core/classes/statusRequest.dart';
+import '../core/constants/colors.dart';
 import '../core/functions/handlingData.dart';
 import '../core/services/services.dart';
 import '../data/dataSource/remote/myFavorite_data.dart';
+import 'package:flutter/material.dart';
+
+import '../data/model/myFavoriteModel.dart';
 
 abstract class MyFavoriteController extends GetxController {
   getData();
+  deleteFromMyFavorite(int idOfFavItem);
 }
 
 class MyFavoriteControllerImp extends MyFavoriteController {
@@ -21,12 +26,33 @@ class MyFavoriteControllerImp extends MyFavoriteController {
     update();
     var response = await myFavoriteData
         .getMyFavoriteData(myServices.sharedPreferences.getString("id")!);
+    print("=================================================================$response");
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response["status"] == "success") {
         myFavoriteList.addAll(response['data']);
       } else {
-        statusRequest == StatusRequest.noData;
+        // الخطأ كان انك مستخدم == وليس = وبالتالي تكون مقارنة وليس اسناد قيمة في حال ال statusRequest = StatusRequest.noData;
+        statusRequest = StatusRequest.noData;
+      }
+    }
+    update();
+  }
+
+
+  @override
+  deleteFromMyFavorite(idOfFavItem) async {
+    statusRequest = StatusRequest.loading;
+    update();
+    var response = await myFavoriteData.deleteMyFavoriteData(idOfFavItem);
+    print("======================================== controller $response");
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      if (response["status"] == "success") {
+        myFavoriteList.removeWhere((element) => element['favorite_id'] == idOfFavItem);
+      } else {
+        // الخطأ كان انك مستخدم == وليس = وبالتالي تكون مقارنة وليس اسناد قيمة في حال ال statusRequest = StatusRequest.noData;
+        statusRequest = StatusRequest.noData;
       }
     }
     update();

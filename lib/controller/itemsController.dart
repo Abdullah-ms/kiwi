@@ -42,7 +42,8 @@ class ItemsControllerImp extends ItemsController {
       if (response["status"] == "success") {
         itemsList.addAll(response['data']);
       } else {
-        statusRequest == StatusRequest.noData;
+        // الخطأ كان انك مستخدم == وليس = وبالتالي تكون مقارنة وليس اسناد قيمة في حال ال statusRequest = StatusRequest.noData;
+        statusRequest = StatusRequest.noData;
       }
     }
     update();

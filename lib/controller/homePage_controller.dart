@@ -36,7 +36,8 @@ class HomeControllerImp extends HomeController {
         dataCategories.addAll(response['categories']);
         dataItems.addAll(response['items']);
       } else {
-        statusRequest == StatusRequest.noData;
+        // الخطأ كان انك مستخدم == وليس = وبالتالي تكون مقارنة وليس اسناد قيمة في حال ال statusRequest = StatusRequest.noData;
+        statusRequest = StatusRequest.noData;
       }
     }
     update();
@@ -67,5 +68,6 @@ class HomeControllerImp extends HomeController {
   goToMyFavorite() {
     Get.toNamed(AppRoutes.myFavorite);
   }
+
 
 }

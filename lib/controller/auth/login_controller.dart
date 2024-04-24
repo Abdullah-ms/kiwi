@@ -55,13 +55,17 @@ class LoginControllerImp extends LoginController {
       statusRequest = handlingData(response);
       if (statusRequest == StatusRequest.success) {
         if (response['status'] == "success") {
-          //يتم خزن بيانات اليوزر بالكاش عند تسجيل الدخول
-          myServices.sharedPreferences.setString("id", response['data']['users_id'].toString());
-          myServices.sharedPreferences.setString("username", response['data']['users_name']);
-          myServices.sharedPreferences.setString("email", response['data']['users_email']);
-          myServices.sharedPreferences.setString("phone", response['data']['users_phone']);
-          myServices.sharedPreferences.setString("step", "2");
-          Get.offNamed(AppRoutes.homePage);
+          if(response['data']['users_approve'] == 1){
+            //يتم خزن بيانات اليوزر بالكاش عند تسجيل الدخول
+            myServices.sharedPreferences.setString("id", response['data']['users_id'].toString());
+            myServices.sharedPreferences.setString("username", response['data']['users_name']);
+            myServices.sharedPreferences.setString("email", response['data']['users_email']);
+            myServices.sharedPreferences.setString("phone", response['data']['users_phone']);
+            myServices.sharedPreferences.setString("step", "2");
+            Get.offNamed(AppRoutes.homePage);
+          }else{
+            Get.offNamed(AppRoutes.verifyCodeSignUp , arguments: {"email" : email.text});
+          }
         } else {
           Get.defaultDialog(
               title: "Warning",

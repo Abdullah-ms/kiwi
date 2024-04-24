@@ -12,4 +12,11 @@ class MyFavoriteData {
     });
     return response.fold((l) => l, (r) => r);
   }
+
+  deleteMyFavoriteData(int idOfFavoriteItem ) async {
+    var response = await crud.postRequest(AppLinks.favoriteDelete, {
+      "id" : idOfFavoriteItem.toString() ,
+    });
+    return response.fold((l) => l, (r) => r);
+  }
 }
