@@ -15,6 +15,7 @@ class OnBoardingControllerImp extends OnBoardingController {
 
   int currentPageIndex = 0;
 
+  // ال MyServices معمول له حقن لذلك فقط نعمل find
   MyServices myServices = Get.find();
 
   @override

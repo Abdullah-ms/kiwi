@@ -4,7 +4,7 @@ class AppColors {
   static Color black = const Color(0xff000000);
   static Color white = const Color(0xffffffff);
   static Color red = Colors.red;
-  // static Color blackIntermediate = const Color(0xff848080);
+ static Color grey = const Color(0xff848080);
   static Color blackIntermediate = const Color(0xff202120)  ;
   static Color primaryColor =  const Color(0xff66cc66) ;
   static Color secondaryColor = const Color(0xff669933);

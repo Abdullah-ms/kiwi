@@ -14,7 +14,7 @@ abstract class HomeController extends GetxController {
 
 class HomeControllerImp extends HomeController {
 
-
+  // ال MyServices معمول له حقن لذلك فقط نعمل find
   MyServices myServices = Get.find();
   String? lang ;
 

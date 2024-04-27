@@ -22,6 +22,8 @@ class ItemsControllerImp extends ItemsController {
   late String userId ;
 
   ItemsData itemsData = ItemsData(Get.find());
+
+  // ال MyServices معمول له حقن لذلك فقط نعمل find
   MyServices myServices = Get.find();
   List itemsList = [];
 

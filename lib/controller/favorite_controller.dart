@@ -18,6 +18,8 @@ class FavoriteControllerImp extends FavoriteController {
   Map isFavorite = {};
 
   FavoriteData favoriteData = FavoriteData(Get.find());
+
+  // ال MyServices معمول له حقن لذلك فقط نعمل find
   MyServices myServices = Get.find();
 
   late StatusRequest statusRequest;

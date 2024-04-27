@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kiwi/core/constants/appRoutesNames.dart';
-
 import '../../core/localization/changeLocal.dart';
 import '../widgets/language/customButtonLang.dart';
 
@@ -28,7 +27,9 @@ class Language extends GetView<LangController> {
                 Get.toNamed(AppRoutes.onBoarding);
               },
             ),
-            SizedBox(height: 15,),
+            const SizedBox(
+              height: 15,
+            ),
             CustomButtonLang(
               textButton: '3'.tr,
               onPressed: () {

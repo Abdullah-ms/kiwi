@@ -3,7 +3,6 @@ import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 import 'package:kiwi/core/classes/handlingDataView.dart';
 import '../../../../controller/auth/verfyCode_controller.dart';
-import '../../../../core/classes/statusRequest.dart';
 import '../../../../core/constants/colors.dart';
 
 class VerifyCode extends StatelessWidget {
@@ -13,20 +12,21 @@ class VerifyCode extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(VerifyCodeControllerImp());
     return Scaffold(
-        appBar: AppBar(
-            backgroundColor: Colors.transparent,
-            centerTitle: true,
-            title: Text(
-              "Verification Code",
-              style: Theme.of(context)
-                  .textTheme
-                  .displayLarge!
-                  .copyWith(color: AppColors.blackIntermediate),
-            )),
-        body: GetBuilder<VerifyCodeControllerImp>(
-          builder: (controllerImp) => HandlingDataRequest(statusRequest: controllerImp.statusRequest, widget: Container(
-            padding:
-            const EdgeInsets.symmetric(vertical: 10, horizontal: 35),
+      appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          centerTitle: true,
+          title: Text(
+            "Verification Code",
+            style: Theme.of(context)
+                .textTheme
+                .displayLarge!
+                .copyWith(color: AppColors.blackIntermediate),
+          )),
+      body: GetBuilder<VerifyCodeControllerImp>(
+        builder: (controllerImp) => HandlingDataRequest(
+          statusRequest: controllerImp.statusRequest,
+          widget: Container(
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 35),
             child: ListView(
               children: [
                 const SizedBox(
@@ -66,7 +66,9 @@ class VerifyCode extends StatelessWidget {
                 ),
               ],
             ),
-          ),)
-        ));
+          ),
+        ),
+      ),
+    );
   }
 }

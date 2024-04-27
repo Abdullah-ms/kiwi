@@ -31,6 +31,7 @@ class LoginControllerImp extends LoginController {
   LoginData loginData = LoginData(Get.find());
   StatusRequest statusRequest = StatusRequest.none;
 
+  // ال MyServices معمول له حقن لذلك فقط نعمل find
   MyServices myServices = Get.find();
 
   @override

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kiwi/core/classes/handlingDataView.dart';
-import 'package:kiwi/core/constants/appRoutesNames.dart';
-import 'package:kiwi/core/services/services.dart';
+import 'package:kiwi/core/constants/colors.dart';
 import 'package:kiwi/view/widgets/home/customHomeTitle.dart';
 import '../../controller/homePage_controller.dart';
 import '../widgets/home/bannerCard.dart';
@@ -26,15 +25,23 @@ class HomePage extends StatelessWidget {
                 CustomAppBar(
                   titleAppBar: 'Search...',
                   onPressedSearch: () {},
-                  onPressedNotification: () {}, onPressedFavorite: () {
+                 onPressedNotification: () {},
+                  /*
+                 onPressedFavorite: () {
                   controllerImp.goToMyFavorite();
-                },
+                },*/
                 ),
                 const BannerCard(
                   title: 'Friday Offers',
                   subTitle: 'Discount +40%',
                 ),
-                const CustomHomeTitle(title: "Categories"),
+                Row(
+                  children: [
+                    const CustomHomeTitle(title: "Categories"),
+                    const Spacer(),
+                    TextButton(onPressed: (){}, child: Text("View all ..", style: TextStyle(color: AppColors.secondaryColor),))
+                  ]
+                ),
                 const ListOfHomePageCategories(),
                 const CustomHomeTitle(title: "New Meals"),
                 const ListOfNewItems(),

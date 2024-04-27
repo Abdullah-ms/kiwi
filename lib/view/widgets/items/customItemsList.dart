@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kiwi/controller/itemsController.dart';
-import 'package:kiwi/core/classes/handlingDataView.dart';
 import 'package:kiwi/data/model/itemsModel.dart';
 import '../../../controller/favorite_controller.dart';
 import '../../../core/constants/colors.dart';
@@ -38,7 +37,7 @@ class CustomItemsList extends GetView<ItemsControllerImp> {
                   fit: BoxFit.fill,
                   imageUrl: "${AppLinks.imagesItems}/${itemsModel.itemsImages}",
                   placeholder: (context, url) =>
-                  const CircularProgressIndicator(),
+                      const CircularProgressIndicator(),
                   errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
               ),
@@ -46,8 +45,7 @@ class CustomItemsList extends GetView<ItemsControllerImp> {
                 height: 20,
               ),
               Text(
-                "${translateDatabase(
-                    itemsModel.itemsName, itemsModel.itemsNameAr)}",
+                "${translateDatabase(itemsModel.itemsName, itemsModel.itemsNameAr)}",
                 style: TextStyle(
                     color: AppColors.black,
                     fontSize: 16,
@@ -64,12 +62,11 @@ class CustomItemsList extends GetView<ItemsControllerImp> {
                     children: [
                       ...List.generate(
                         5,
-                            (index) =>
-                            Icon(
-                              Icons.star,
-                              size: 18,
-                              color: AppColors.primaryColor,
-                            ),
+                        (index) => Icon(
+                          Icons.star,
+                          size: 18,
+                          color: AppColors.primaryColor,
+                        ),
                       )
                     ],
                   )
@@ -87,24 +84,26 @@ class CustomItemsList extends GetView<ItemsControllerImp> {
                         fontFamily: "sans"),
                   ),
                   GetBuilder<FavoriteControllerImp>(
-                    builder: (favController) =>
-                        IconButton(
-                          onPressed: () {
-                            if (favController.isFavorite[itemsModel.itemsId] ==
-                                1) {
-                              favController.setFavorite(itemsModel.itemsId, 0);
-                              favController.removeFavorite(itemsModel.itemsId.toString());
-                            } else {
-                              favController.setFavorite(itemsModel.itemsId, 1);
-                              favController.addFavorite(itemsModel.itemsId.toString());
-                            }
-                          },
-                          icon: Icon(
-                            favController.isFavorite[itemsModel.itemsId] == 1
-                                ? Icons.favorite
-                                : Icons.favorite_border_outlined,
-                            color: AppColors.primaryColor,
-                          ),),)
+                    builder: (favController) => IconButton(
+                      onPressed: () {
+                        if (favController.isFavorite[itemsModel.itemsId] == 1) {
+                          favController.setFavorite(itemsModel.itemsId, 0);
+                          favController
+                              .removeFavorite(itemsModel.itemsId.toString());
+                        } else {
+                          favController.setFavorite(itemsModel.itemsId, 1);
+                          favController
+                              .addFavorite(itemsModel.itemsId.toString());
+                        }
+                      },
+                      icon: Icon(
+                        favController.isFavorite[itemsModel.itemsId] == 1
+                            ? Icons.favorite
+                            : Icons.favorite_border_outlined,
+                        color: AppColors.primaryColor,
+                      ),
+                    ),
+                  )
                 ],
               )
             ],

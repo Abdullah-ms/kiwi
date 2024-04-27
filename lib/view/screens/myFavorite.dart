@@ -22,10 +22,11 @@ class MyFavorite extends StatelessWidget {
               titleAppBar: 'Search...',
               onPressedSearch: () {},
               onPressedNotification: () {},
-              onPressedFavorite: () {
-              },
+             // onPressedFavorite: () {},
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(
+              height: 20,
+            ),
             GetBuilder<MyFavoriteControllerImp>(
               builder: (controller) => HandlingDataView(
                 statusRequest: controller.statusRequest,
@@ -38,8 +39,9 @@ class MyFavorite extends StatelessWidget {
                             crossAxisCount: 2, childAspectRatio: 0.7),
                     itemBuilder: (BuildContext context, index) {
                       return CustomMyFavoriteList(
-                          myFavoriteModel:
-                          MyFavoriteModel.fromJson(controller.myFavoriteList[index]),);
+                        myFavoriteModel: MyFavoriteModel.fromJson(
+                            controller.myFavoriteList[index]),
+                      );
                     }),
               ),
             ),

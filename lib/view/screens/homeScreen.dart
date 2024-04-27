@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kiwi/controller/homeScreenController.dart';
 import 'package:kiwi/core/constants/colors.dart';
-
 import '../widgets/homeScreen/completeCustomNavBar.dart';
-import '../widgets/homeScreen/customButtonNavigationAppBar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -16,12 +14,10 @@ class HomeScreen extends StatelessWidget {
       builder: (controller) => Scaffold(
         floatingActionButton: FloatingActionButton(
           elevation: 0,
-          backgroundColor: AppColors.secondaryColor,
+          backgroundColor: AppColors.primaryColor,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-          onPressed: () {
-
-          },
+          onPressed: () {},
           child: Icon(
             Icons.shopping_cart_outlined,
             color: AppColors.white,

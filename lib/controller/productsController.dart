@@ -11,6 +11,7 @@ class ProductControllerImp extends ProductController{
 
   late ItemsModel itemsModel ;
 
+  // ال MyServices معمول له حقن لذلك فقط نعمل find
   MyServices myServices = Get.find();
   String? lang ;
 

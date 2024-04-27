@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kiwi/core/classes/handlingDataView.dart';
 import '../../../../controller/auth/resetPassword_controller.dart';
-import '../../../../core/classes/statusRequest.dart';
 import '../../../../core/constants/colors.dart';
 import '../../../../core/functions/validInput.dart';
 import '../../../widgets/auth/customButtonAuth.dart';
@@ -15,20 +14,21 @@ class ResetPassword extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(ResetPasswordControllerImp());
     return Scaffold(
-        appBar: AppBar(
-            backgroundColor: Colors.transparent,
-            centerTitle: true,
-            title: Text(
-              "Reset Password",
-              style: Theme.of(context)
-                  .textTheme
-                  .displayLarge!
-                  .copyWith(color: AppColors.blackIntermediate),
-            )),
-        body: GetBuilder<ResetPasswordControllerImp>(
-          builder: (controllerImp) => HandlingDataRequest(statusRequest: controllerImp.statusRequest, widget: Container(
-            padding:
-            const EdgeInsets.symmetric(vertical: 10, horizontal: 35),
+      appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          centerTitle: true,
+          title: Text(
+            "Reset Password",
+            style: Theme.of(context)
+                .textTheme
+                .displayLarge!
+                .copyWith(color: AppColors.blackIntermediate),
+          )),
+      body: GetBuilder<ResetPasswordControllerImp>(
+        builder: (controllerImp) => HandlingDataRequest(
+          statusRequest: controllerImp.statusRequest,
+          widget: Container(
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 35),
             child: Form(
               key: controllerImp.formState,
               child: ListView(
@@ -95,7 +95,9 @@ class ResetPassword extends StatelessWidget {
                 ],
               ),
             ),
-          ),)
-        ));
+          ),
+        ),
+      ),
+    );
   }
 }

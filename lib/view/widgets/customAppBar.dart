@@ -10,8 +10,8 @@ class CustomAppBar extends StatelessWidget {
       {super.key,
       required this.titleAppBar,
       required this.onPressedNotification,
-      required this.onPressedSearch,
-      required this.onPressedFavorite});
+      required this.onPressedSearch, this.onPressedFavorite,
+     });
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +56,7 @@ class CustomAppBar extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(
+          /*const SizedBox(
             width: 10,
           ),
           Container(
@@ -72,7 +72,7 @@ class CustomAppBar extends StatelessWidget {
                 size: 30,
               ),
             ),
-          )
+          )*/
         ],
       ),
     );
