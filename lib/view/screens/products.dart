@@ -69,7 +69,7 @@ class Products extends StatelessWidget {
                       .bodyMedium!
                       .copyWith(color: AppColors.blackIntermediate),
                 ),
-                const SizedBox(
+/*                const SizedBox(
                   height: 10,
                 ),
                 Text(
@@ -82,7 +82,7 @@ class Products extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                const SubItemsList()
+                const SubItemsList()*/
               ],
             ),
           ),

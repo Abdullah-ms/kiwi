@@ -21,18 +21,19 @@ class Settings extends StatelessWidget {
               color: AppColors.thirdColor,
             ),
             Positioned(
-                top: Get.width / 3,
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: AppColors.white,
-                      borderRadius: BorderRadius.circular(100)),
-                  padding: const EdgeInsets.all(10),
-                  child: CircleAvatar(
-                    radius: 50,
-                    backgroundColor: AppColors.primaryColor,
-                    backgroundImage: const AssetImage(MyImages.logo),
-                  ),
-                ))
+              top: Get.width / 3,
+              child: Container(
+                decoration: BoxDecoration(
+                    color: AppColors.white,
+                    borderRadius: BorderRadius.circular(100)),
+                padding: const EdgeInsets.all(10),
+                child: CircleAvatar(
+                  radius: 50,
+                  backgroundColor: AppColors.primaryColor,
+                  backgroundImage: const AssetImage(MyImages.logo),
+                ),
+              ),
+            ),
           ],
         ),
         const SizedBox(
@@ -44,28 +45,31 @@ class Settings extends StatelessWidget {
             child: Column(
               children: [
                 ListTile(
-                  title: Text("Disable Notifications"),
-                  trailing: Switch(value: true, onChanged: (val){}),
+                  title: const Text("Disable Notifications"),
+                  trailing: Switch(value: true, onChanged: (val) {}),
                 ),
                 Divider(color: AppColors.secondaryColor),
-                ListTile(
+                const ListTile(
                   title: Text("Addresses"),
                   trailing: Icon(Icons.location_on_outlined),
                 ),
                 Divider(color: AppColors.secondaryColor),
-                ListTile(
+                const ListTile(
                   title: Text("About us"),
                   trailing: Icon(Icons.info_outline),
                 ),
                 Divider(color: AppColors.secondaryColor),
-                ListTile(
+                const ListTile(
                   title: Text("Contact us"),
                   trailing: Icon(Icons.support_agent_outlined),
                 ),
                 Divider(color: AppColors.secondaryColor),
                 ListTile(
-                  title: Text("LogOut"),
-                  trailing: Icon(Icons.exit_to_app_outlined,color: Colors.red,),
+                  title: const Text("LogOut"),
+                  trailing: const Icon(
+                    Icons.exit_to_app_outlined,
+                    color: Colors.red,
+                  ),
                   onTap: () {
                     controllerImp.logOut();
                   },

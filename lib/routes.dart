@@ -9,6 +9,7 @@ import 'package:kiwi/view/screens/auth/success_SignUp.dart';
 import 'package:kiwi/view/screens/auth/forgetPassword/success_reset.dart';
 import 'package:kiwi/view/screens/auth/forgetPassword/verifyCode.dart';
 import 'package:kiwi/view/screens/auth/verifyCodeSignUp.dart';
+import 'package:kiwi/view/screens/cart.dart';
 import 'package:kiwi/view/screens/homeScreen.dart';
 import 'package:kiwi/view/screens/items.dart';
 import 'package:kiwi/view/screens/language.dart';
@@ -18,9 +19,8 @@ import 'package:kiwi/view/test_view.dart';
 import 'core/middleware/middlewareOne.dart';
 
 List<GetPage<dynamic>>? myGetPages = [
-  GetPage(
-      name: "/", page: () => const Language(), middlewares: [MiddleWareOne()]),
-  // GetPage(name: "/", page: () => const Products()),
+  // GetPage( name: "/", page: () => const Language(), middlewares: [MiddleWareOne()]),
+  GetPage(name: "/", page: () => const Cart()),
   GetPage(name: AppRoutes.onBoarding, page: () => const OnBoarding()),
   //Auth
   GetPage(name: AppRoutes.login, page: () => const Login()),
