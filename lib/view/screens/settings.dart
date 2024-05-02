@@ -18,7 +18,7 @@ class Settings extends StatelessWidget {
           children: [
             Container(
               height: Get.width / 2,
-              color: AppColors.thirdColor,
+              color: AppColors.primaryColor,
             ),
             Positioned(
               top: Get.width / 3,
@@ -30,7 +30,7 @@ class Settings extends StatelessWidget {
                 child: CircleAvatar(
                   radius: 50,
                   backgroundColor: AppColors.primaryColor,
-                  backgroundImage: const AssetImage(MyImages.logo),
+                  backgroundImage: const AssetImage(MyImages.toot),
                 ),
               ),
             ),

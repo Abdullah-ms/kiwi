@@ -22,7 +22,7 @@ class TopCardCart extends StatelessWidget {
         child: Text(
           message,
           style:
-          TextStyle(color: AppColors.secondaryColor, fontSize: 17),
+          TextStyle(color: AppColors.secondaryColor, fontSize: 17 , fontFamily: "sans"),
         ),
       ),
     );

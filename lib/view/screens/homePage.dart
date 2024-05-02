@@ -26,10 +26,9 @@ class HomePage extends StatelessWidget {
                   titleAppBar: 'Search...',
                   onPressedSearch: () {},
                  onPressedNotification: () {},
-                  /*
                  onPressedFavorite: () {
                   controllerImp.goToMyFavorite();
-                },*/
+                },
                 ),
                 const BannerCard(
                   title: 'Friday Offers',

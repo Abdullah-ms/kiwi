@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../core/constants/colors.dart';
 
@@ -16,7 +17,9 @@ class TopAppBarCart extends StatelessWidget {
             child: Container(
                 alignment: Alignment.centerLeft,
                 child: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.back();
+                  },
                   icon: const Icon(Icons.arrow_back_outlined),
                 )),
           ),

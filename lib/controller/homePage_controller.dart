@@ -33,8 +33,8 @@ class HomeControllerImp extends HomeController {
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response["status"] == "success") {
-        dataCategories.addAll(response['categories']);
-        dataItems.addAll(response['items']);
+        dataCategories.addAll(response['categories']['data']);
+        dataItems.addAll(response['items']['data']);
       } else {
         // الخطأ كان انك مستخدم == وليس = وبالتالي تكون مقارنة وليس اسناد قيمة في حال ال statusRequest = StatusRequest.noData;
         statusRequest = StatusRequest.noData;

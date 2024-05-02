@@ -1,33 +1,44 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-
 import '../../../core/constants/colors.dart';
+import '../../../data/model/cartModel.dart';
+import '../../../linkAPIs.dart';
 
 class CustomItemsCartList extends StatelessWidget {
-  final String itemName ;
-  final String itemPrice ;
-  final String itemCount ;
-
-  const CustomItemsCartList({super.key, required this.itemName, required this.itemPrice, required this.itemCount});
+  final CartModel cartModel ;
+  final void Function()? onAdd;
+  final void Function()? onRemove;
+  const CustomItemsCartList({super.key, required this.cartModel, required this.onAdd, required this.onRemove});
 
   @override
   Widget build(BuildContext context) {
+
     return Card(
       child: Container(
         child: Row(
           children: [
             Expanded(
               flex: 2,
-              child: Image.asset(
-                "assets/images/logo.png",
-                height: 90,
+              child: Container(
+                padding: const EdgeInsets.all(10),
+                color: AppColors.primaryColor,
+                child: CachedNetworkImage(
+                  height: 60,
+                  width: 50,
+                  fit: BoxFit.cover,
+                  imageUrl: "${AppLinks.imagesItems}/${cartModel.itemsImages}",
+                  placeholder: (context, url) =>
+                  const CircularProgressIndicator(),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                ),
               ),
-            ),
+        ),
             Expanded(
               flex: 3,
               child: ListTile(
-                title: Text(itemName),
+                title: Text("${cartModel.itemsName}"),
                 subtitle: Text(
-                  itemPrice,
+                  "${cartModel.itemsPriceForItemAfterCount}",
                   style: TextStyle(
                       fontSize: 15,
                       color: AppColors.red,
@@ -42,22 +53,23 @@ class CustomItemsCartList extends StatelessWidget {
                   SizedBox(
                     height: 35,
                     child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.add),
+                      color: AppColors.primaryColor,
+                      onPressed: onAdd,
+                      icon: const Icon(Icons.add_box),
                     ),
                   ),
                   Container(
                     height: 30,
                     padding: const EdgeInsets.only(top: 4),
                     child: Text(
-                      itemCount,
+                      "${cartModel.countitems}",
                       style: const TextStyle(fontFamily: "sans"),
                     ),
                   ),
                   SizedBox(
                     height: 30,
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: onRemove,
                       icon: const Icon(Icons.remove),
                     ),
                   ),

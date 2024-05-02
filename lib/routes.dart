@@ -19,8 +19,8 @@ import 'package:kiwi/view/test_view.dart';
 import 'core/middleware/middlewareOne.dart';
 
 List<GetPage<dynamic>>? myGetPages = [
-  // GetPage( name: "/", page: () => const Language(), middlewares: [MiddleWareOne()]),
-  GetPage(name: "/", page: () => const Cart()),
+  GetPage( name: "/", page: () => const Language(), middlewares: [MiddleWareOne()]),
+  // GetPage(name: "/", page: () => const TestView()),
   GetPage(name: AppRoutes.onBoarding, page: () => const OnBoarding()),
   //Auth
   GetPage(name: AppRoutes.login, page: () => const Login()),
@@ -37,4 +37,5 @@ List<GetPage<dynamic>>? myGetPages = [
   GetPage(name: AppRoutes.items, page: () => const Items()),
   GetPage(name: AppRoutes.products, page: () => const Products()),
   GetPage(name: AppRoutes.myFavorite, page: () => const MyFavorite()),
+  GetPage(name: AppRoutes.cart, page: () => const Cart()),
 ];

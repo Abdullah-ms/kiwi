@@ -22,7 +22,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
               Container(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Text(
-                    "Meal",
+                    "Meals price",
                     style: TextStyle(
                         fontSize: 15, color: AppColors.secondaryColor),
                   )),

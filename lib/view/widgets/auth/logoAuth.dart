@@ -13,7 +13,7 @@ class LogoAuth extends StatelessWidget {
       radius: 60,
       backgroundColor: AppColors.primaryColor,
       child: Image.asset(
-        MyImages.logo,
+        MyImages.toot,
       ),
     );
   }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kiwi/controller/homeScreenController.dart';
 import 'package:kiwi/core/constants/colors.dart';
+import '../../core/constants/appRoutesNames.dart';
 import '../widgets/homeScreen/completeCustomNavBar.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -17,7 +18,9 @@ class HomeScreen extends StatelessWidget {
           backgroundColor: AppColors.primaryColor,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-          onPressed: () {},
+          onPressed: () {
+            Get.toNamed(AppRoutes.cart);
+          },
           child: Icon(
             Icons.shopping_cart_outlined,
             color: AppColors.white,
@@ -25,7 +28,7 @@ class HomeScreen extends StatelessWidget {
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         // لا تضيف const لل CompleteCustomNavBar لانه سيمنع تحديث الui وبالتالب لا يتغير لون الicon او يمكنك عمله مع اضافة GetBuilder عند انشائه
-        bottomNavigationBar: const CompleteCustomNavBar(),
+        bottomNavigationBar: CompleteCustomNavBar(),
         body: controller.pagesList.elementAt(controller.currentPage),
       ),
     );

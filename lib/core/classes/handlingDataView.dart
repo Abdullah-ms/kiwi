@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kiwi/core/classes/statusRequest.dart';
 import 'package:lottie/lottie.dart';
 import '../constants/assetsImages.dart';
+import '../constants/colors.dart';
 
 class HandlingDataView extends StatelessWidget {
   final StatusRequest statusRequest;
@@ -15,7 +16,7 @@ class HandlingDataView extends StatelessWidget {
     return statusRequest == StatusRequest.loading
         ? Center(
             child: Center(
-              child: Lottie.asset(MyImages.loading, height: 250, width: 250),
+              child: CircularProgressIndicator(color: AppColors.primaryColor),
             ),
           )
         : statusRequest == StatusRequest.offline

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kiwi/view/screens/homePage.dart';
-
+import '../core/classes/statusRequest.dart';
 import '../view/screens/myFavorite.dart';
 import '../view/screens/settings.dart';
 
@@ -13,8 +13,15 @@ class HomeScreenControllerImp extends HomeScreenController {
   int currentPage = 0;
 
   List<Widget> pagesList = [
-    const HomePage(),
-    const MyFavorite(),
+    HomePage(),
+    const Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Center(
+          child: Text("categories"),
+        )
+      ],
+    ),
     const Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -28,19 +35,19 @@ class HomeScreenControllerImp extends HomeScreenController {
 
   List iconsList = [
     {
-      "title": "Home",
+      //"title": "Home",
       "icon": Icons.home_outlined,
     },
     {
-      "title": "Favorite",
-      "icon": Icons.favorite_outline,
+      //"title": "Categories",
+      "icon": Icons.category_outlined,
     },
     {
-      "title": "Orders",
+      //"title": "Orders",
       "icon": Icons.fastfood_outlined,
     },
     {
-      "title": "Setting",
+      //"title": "Setting",
       "icon": Icons.person_outline,
     },
   ];

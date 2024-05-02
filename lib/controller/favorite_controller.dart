@@ -12,6 +12,7 @@ abstract class FavoriteController extends GetxController {
   addFavorite(String itemId);
 
   removeFavorite(String itemId);
+
 }
 
 class FavoriteControllerImp extends FavoriteController {
@@ -41,13 +42,13 @@ class FavoriteControllerImp extends FavoriteController {
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response["status"] == "success") {
-        Get.rawSnackbar(
+/*        Get.rawSnackbar(
           title: "Alert",
           messageText: Text(
             "Added to favorites",
             style: TextStyle(color: AppColors.white),
           ),
-        );
+        );*/
       } else {
         // الخطأ كان انك مستخدم == وليس = وبالتالي تكون مقارنة وليس اسناد قيمة في حال ال statusRequest = StatusRequest.noData;
         statusRequest = StatusRequest.noData;
@@ -66,13 +67,13 @@ class FavoriteControllerImp extends FavoriteController {
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response["status"] == "success") {
-        Get.rawSnackbar(
+/*        Get.rawSnackbar(
           title: "Alert",
           messageText: Text(
             "Canceled from favorites",
             style: TextStyle(color: AppColors.white),
           ),
-        );
+        );*/
       } else {
         // الخطأ كان انك مستخدم == وليس = وبالتالي تكون مقارنة وليس اسناد قيمة في حال ال statusRequest = StatusRequest.noData;
         statusRequest = StatusRequest.noData;

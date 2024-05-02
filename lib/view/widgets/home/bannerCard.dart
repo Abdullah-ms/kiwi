@@ -12,6 +12,7 @@ class BannerCard extends GetView<HomeControllerImp> {
      return Container(
        margin: const EdgeInsets.symmetric(vertical: 15),
        child: Stack(
+         clipBehavior: Clip.none,
          children: [
            Container(
              alignment: Alignment.center,
@@ -42,7 +43,7 @@ class BannerCard extends GetView<HomeControllerImp> {
                  // color: AppColors.forthColor,
                  borderRadius: BorderRadius.circular(160),
                ),
-               child: Image.asset("assets/images/logo.png"),
+               child: Image.asset("assets/images/toot.png"),
              ),
            ),
          ],

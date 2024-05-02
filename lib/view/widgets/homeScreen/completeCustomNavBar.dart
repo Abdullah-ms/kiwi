@@ -11,7 +11,7 @@ class CompleteCustomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeScreenControllerImp>(builder: (controller) => BottomAppBar(
-      color: AppColors.white,
+      color: AppColors.primaryColor,
       shape: const CircularNotchedRectangle(),
       notchMargin: 10,
       child: Row(
@@ -21,7 +21,7 @@ class CompleteCustomNavBar extends StatelessWidget {
             return index == 2
                 ? const Spacer()
                 : CustomButtonNavigationAppBar(
-              title: controller.iconsList[newIndex]['title'],
+             // title: controller.iconsList[newIndex]['title'],
               onPressed: () {
                 controller.changePage(newIndex);
               },

@@ -56,7 +56,7 @@ class CustomAppBar extends StatelessWidget {
               ),
             ),
           ),
-          /*const SizedBox(
+          const SizedBox(
             width: 10,
           ),
           Container(
@@ -72,7 +72,7 @@ class CustomAppBar extends StatelessWidget {
                 size: 30,
               ),
             ),
-          )*/
+          )
         ],
       ),
     );

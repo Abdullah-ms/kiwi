@@ -24,28 +24,34 @@ class PriceAndCountOfProduct extends StatelessWidget {
       children: [
         Row(
           children: [
-            IconButton(onPressed: () {}, icon: const Icon(Icons.add)),
+            IconButton(
+              onPressed: onAdd,
+              icon: const Icon(Icons.add),
+            ),
             Container(
               alignment: Alignment.center,
               width: 50,
               decoration: BoxDecoration(
-                  border: Border.all(color: AppColors.secondaryColor),
-                  borderRadius: BorderRadius.circular(10)),
+                border: Border.all(color: AppColors.secondaryColor),
+                borderRadius: BorderRadius.circular(10),
+              ),
               child: Text(
                 count,
                 style: const TextStyle(fontSize: 20, fontFamily: "sans"),
               ),
             ),
-            IconButton(onPressed: () {}, icon: const Icon(Icons.remove)),
+            IconButton(
+              onPressed: onRemove,
+              icon: const Icon(Icons.remove),
+            ),
           ],
         ),
         const Spacer(),
         Text(
           "$price IDQ",
-          style: Theme.of(context)
-              .textTheme
-              .bodyMedium!
-              .copyWith(color: AppColors.primaryColor, fontSize: 20 ,fontFamily: "sans"),),
+          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+              color: AppColors.primaryColor, fontSize: 20, fontFamily: "sans"),
+        ),
       ],
     );
   }
