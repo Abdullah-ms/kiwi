@@ -18,12 +18,12 @@ class MyFavorite extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: ListView(
           children: [
-            CustomAppBar(
+            /*CustomAppBar(
               titleAppBar: 'Search...',
               onPressedSearch: () {},
               onPressedNotification: () {},
              // onPressedFavorite: () {},
-            ),
+            ),*/
             const SizedBox(
               height: 20,
             ),

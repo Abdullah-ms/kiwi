@@ -15,9 +15,7 @@ class HandlingDataView extends StatelessWidget {
   Widget build(BuildContext context) {
     return statusRequest == StatusRequest.loading
         ? Center(
-            child: Center(
-              child: CircularProgressIndicator(color: AppColors.primaryColor),
-            ),
+            child: CircularProgressIndicator(color: AppColors.primaryColor),
           )
         : statusRequest == StatusRequest.offline
             ? const Center(

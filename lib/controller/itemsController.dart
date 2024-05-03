@@ -1,4 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kiwi/controller/homePage_controller.dart';
 import 'package:kiwi/core/constants/appRoutesNames.dart';
 import 'package:kiwi/core/services/services.dart';
 import 'package:kiwi/data/model/itemsModel.dart';
@@ -6,11 +8,13 @@ import '../core/classes/statusRequest.dart';
 import '../core/functions/handlingData.dart';
 import '../data/dataSource/remote/items_data.dart';
 
-abstract class ItemsController extends GetxController {
+
+abstract class ItemsController extends SearchMixController {
   initialData();
   changeCat(int newCat);
   getData(int requestCatId , String requestUserId);
   goToProducts(ItemsModel itemsModel);
+  goToMyFavorite();
 }
 
 class ItemsControllerImp extends ItemsController {
@@ -53,6 +57,7 @@ class ItemsControllerImp extends ItemsController {
 
   @override
   void onInit() {
+    search = TextEditingController();
     initialData();
     super.onInit();
   }
@@ -75,6 +80,12 @@ class ItemsControllerImp extends ItemsController {
     selectedCat = newCat ;
     getData(newCat+1 , userId);
     update();
+  }
+
+
+  @override
+  goToMyFavorite() {
+    Get.toNamed(AppRoutes.myFavorite);
   }
 
   @override

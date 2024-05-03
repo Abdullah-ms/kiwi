@@ -34,8 +34,8 @@ class BannerCard extends GetView<HomeControllerImp> {
            ),
            Positioned(
              bottom: -50,
-             right: controller.lang == "en" ? -50 : null,
-             left: controller.lang == "ar" ? -50 : null,
+             right: controller.lang == "en" ? -20 : null,
+             left: controller.lang == "ar" ? -20 : null,
              child: Container(
                height: 160,
                width: 160,
@@ -43,7 +43,7 @@ class BannerCard extends GetView<HomeControllerImp> {
                  // color: AppColors.forthColor,
                  borderRadius: BorderRadius.circular(160),
                ),
-               child: Image.asset("assets/images/toot.png"),
+               child: Image.asset("assets/images/burger.png"),
              ),
            ),
          ],

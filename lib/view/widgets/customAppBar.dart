@@ -1,17 +1,24 @@
 import 'package:flutter/material.dart';
 
+import '../../core/constants/colors.dart';
+
 class CustomAppBar extends StatelessWidget {
   final String titleAppBar;
   final void Function()? onPressedNotification;
   final void Function()? onPressedFavorite;
   final void Function()? onPressedSearch;
+  final void Function(String)? onChanged;
+  final TextEditingController? myController;
 
-  const CustomAppBar(
-      {super.key,
-      required this.titleAppBar,
-      required this.onPressedNotification,
-      required this.onPressedSearch, this.onPressedFavorite,
-     });
+  const CustomAppBar({
+    super.key,
+    required this.titleAppBar,
+    required this.onPressedNotification,
+    required this.onPressedSearch,
+    this.onPressedFavorite,
+    this.onChanged,
+    required this.myController,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,12 +28,15 @@ class CustomAppBar extends StatelessWidget {
         children: [
           Expanded(
             child: TextFormField(
+              onChanged: onChanged,
+              controller: myController,
               decoration: InputDecoration(
                   prefixIcon: IconButton(
                       onPressed: onPressedSearch,
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.search_outlined,
                         size: 35,
+                        color: AppColors.blue,
                       )),
                   hintText: titleAppBar,
                   hintStyle: const TextStyle(
@@ -39,6 +49,7 @@ class CustomAppBar extends StatelessWidget {
                   filled: true),
             ),
           ),
+
           const SizedBox(
             width: 10,
           ),
@@ -46,13 +57,14 @@ class CustomAppBar extends StatelessWidget {
             decoration: BoxDecoration(
                 color: Colors.grey[200],
                 borderRadius: BorderRadius.circular(10)),
-            width: 60,
+            width: 50,
             padding: const EdgeInsets.symmetric(vertical: 8),
             child: IconButton(
               onPressed: onPressedNotification,
-              icon: const Icon(
+              icon: Icon(
                 Icons.notifications_on_outlined,
                 size: 30,
+                color: AppColors.secondaryColor,
               ),
             ),
           ),
@@ -63,13 +75,14 @@ class CustomAppBar extends StatelessWidget {
             decoration: BoxDecoration(
                 color: Colors.grey[200],
                 borderRadius: BorderRadius.circular(10)),
-            width: 60,
+            width: 50,
             padding: const EdgeInsets.symmetric(vertical: 8),
             child: IconButton(
               onPressed: onPressedFavorite,
-              icon: const Icon(
+              icon: Icon(
                 Icons.favorite_border_outlined,
                 size: 30,
+                color: AppColors.secondaryColor,
               ),
             ),
           )
