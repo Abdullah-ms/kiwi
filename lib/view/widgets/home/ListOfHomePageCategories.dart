@@ -47,19 +47,19 @@ class CategoriesUsingModel extends GetView<HomeControllerImp> {
         children: [
           Container(
             decoration: BoxDecoration(
-                color: AppColors.primaryColor.withOpacity(0.2),
+                color: AppColors.primaryColor,
                 borderRadius: BorderRadius.circular(20)),
             padding: const EdgeInsets.symmetric(horizontal: 10),
             height: 70,
             width: 70,
             child: SvgPicture.network(
               "${AppLinks.imagesCategories}/${categoriesModel.categoriesImage}",
-              color: AppColors.secondaryColor,
+              color: AppColors.white,
             ),
           ),
           Text(
             "${translateDatabase(categoriesModel.categoriesName , categoriesModel.categoriesNameAr)}",
-            style: TextStyle(color: AppColors.blackIntermediate, fontSize: 14),
+            style: TextStyle(color: AppColors.secondaryColor, fontSize: 14),
           ),
         ],
       ),

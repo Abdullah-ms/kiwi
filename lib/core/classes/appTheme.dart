@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../constants/colors.dart';
 
 ThemeData themeEnglish = ThemeData(
-  fontFamily: "PlayfairDisplay",
+  // fontFamily: "PlayfairDisplay",
   textTheme: TextTheme(
     displayLarge: TextStyle(
       fontSize: 20,

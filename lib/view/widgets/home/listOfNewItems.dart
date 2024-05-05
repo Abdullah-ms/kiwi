@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../controller/homePage_controller.dart';
+import '../../../core/constants/assetsImages.dart';
 import '../../../core/constants/colors.dart';
 import '../../../data/model/itemsModel.dart';
 import '../../../linkAPIs.dart';
@@ -32,36 +33,61 @@ class ItemsUsingModel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return Row(
       children: [
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
-          margin: const EdgeInsets.symmetric(horizontal: 10),
-          child: Image.network(
-            "${AppLinks.imagesItems}/${itemsModel.itemsImages}",
-            height: 90,
-            width: 140,
-            fit: BoxFit.fill,
-          ),
+        Stack(
+          children: [
+            Container(
+              height: 170,
+              width: 180,
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
+              margin: const EdgeInsets.symmetric(horizontal: 10),
+              child: Column(
+                children: [
+                  Image.network(
+                    "${AppLinks.imagesItems}/${itemsModel.itemsImages}",
+                    height: 60,
+                    width: 100,
+                    fit: BoxFit.fill,
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              height: 150,
+              width: 200,
+              decoration: BoxDecoration(
+                  // color: AppColors.primaryColor.withOpacity(0.1),
+                  border: Border.all(color: AppColors.primaryColor, width: 1 ),
+                  borderRadius: BorderRadius.circular(20)),
+            ),
+            Positioned(
+              left: 10,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "${itemsModel.itemsName}",
+                    style: TextStyle(
+                      color: AppColors.secondaryColor,
+                      fontSize: 17,),
+                  ),
+                ],
+              ),
+            ),
+            Positioned(
+                bottom: 10,
+                child: Row(children: [
+              Image.asset(MyImages.discount , width: 50),
+              Text("${itemsModel.itemsDiscount} %",style: TextStyle( color: AppColors.green, fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: "sans"),)
+            ],))
+          ],
         ),
-        Container(
-          height: 140,
-          width: 190,
-          decoration: BoxDecoration(
-              color: AppColors.primaryColor.withOpacity(0.1),
-              borderRadius: BorderRadius.circular(20)),
-        ),
-        Positioned(
-          left: 10,
-          child: Text(
-            "${itemsModel.itemsName}",
-            style: TextStyle(
-                color: AppColors.blackIntermediate,
-                fontSize: 17,
-                fontWeight: FontWeight.bold),
-          ),
-        ),
+        const SizedBox(width: 10 ,)
       ],
-    );
+    )
+    ;
   }
 }

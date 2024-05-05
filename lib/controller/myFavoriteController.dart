@@ -1,12 +1,13 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../core/classes/statusRequest.dart';
 import '../core/functions/handlingData.dart';
 import '../core/services/services.dart';
 import '../data/dataSource/remote/myFavorite_data.dart';
+import 'homePage_controller.dart';
 
-abstract class MyFavoriteController extends GetxController {
+abstract class MyFavoriteController extends SearchMixController {
   getData();
-
   deleteFromMyFavorite(int idOfFavItem);
 }
 
@@ -56,6 +57,7 @@ class MyFavoriteControllerImp extends MyFavoriteController {
 
   @override
   void onInit() {
+    search = TextEditingController();
     getData();
     super.onInit();
   }

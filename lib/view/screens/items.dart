@@ -24,7 +24,7 @@ class Items extends StatelessWidget {
         child: ListView(
           children: [
             CustomAppBar(
-              titleAppBar: 'Search...',
+              titleAppBar: 'Find your meal...',
               onPressedSearch: () {
                 itemsControllerImp.onPressSearchButton();
               },

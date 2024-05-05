@@ -33,12 +33,12 @@ class BannerCard extends GetView<HomeControllerImp> {
              ),
            ),
            Positioned(
-             bottom: -50,
+             bottom: -70,
              right: controller.lang == "en" ? -20 : null,
              left: controller.lang == "ar" ? -20 : null,
              child: Container(
-               height: 160,
-               width: 160,
+               height: 190,
+               width: 170,
                decoration: BoxDecoration(
                  // color: AppColors.forthColor,
                  borderRadius: BorderRadius.circular(160),

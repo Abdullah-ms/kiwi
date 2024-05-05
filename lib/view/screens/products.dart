@@ -67,7 +67,7 @@ class Products extends StatelessWidget {
                                 controller.decreaseCount();
                               },
                               count: '${controller.countOfAddItems}',
-                              price: '${controller.itemsModel.itemsPrice}',
+                              price: '${controller.itemsModel.priceAfterDiscount}',
                             ),
                             const SizedBox(
                               height: 15,

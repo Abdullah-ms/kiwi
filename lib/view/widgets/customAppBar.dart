@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import '../../core/constants/colors.dart';
 
@@ -35,13 +36,12 @@ class CustomAppBar extends StatelessWidget {
                       onPressed: onPressedSearch,
                       icon: Icon(
                         Icons.search_outlined,
-                        size: 35,
-                        color: AppColors.blue,
+                        size: 30,
+                        color: AppColors.secondaryColor,
                       )),
                   hintText: titleAppBar,
                   hintStyle: const TextStyle(
-                    fontSize: 18,
-                  ),
+                      fontSize: 16, ),
                   border: const OutlineInputBorder(
                       borderSide: BorderSide.none,
                       borderRadius: BorderRadius.all(Radius.circular(10.0))),
@@ -49,7 +49,6 @@ class CustomAppBar extends StatelessWidget {
                   filled: true),
             ),
           ),
-
           const SizedBox(
             width: 10,
           ),

@@ -20,11 +20,11 @@ class HomePage extends StatelessWidget {
     Get.put(HomeControllerImp());
     return GetBuilder<HomeControllerImp>(
       builder: (controllerImp) => Container(
-        padding: const EdgeInsets.symmetric(horizontal: 5),
+        padding: const EdgeInsets.symmetric(horizontal: 7),
         child: ListView(
           children: [
             CustomAppBar(
-              titleAppBar: 'Search...',
+              titleAppBar: 'Find your meal...',
               onPressedSearch: () {
                 controllerImp.onPressSearchButton();
               },
@@ -49,7 +49,7 @@ class HomePage extends StatelessWidget {
                           ),
                           CustomHomeTitle(title: "Categories"),
                           ListOfHomePageCategories(),
-                          CustomHomeTitle(title: "New Meals"),
+                          CustomHomeTitle(title: "Discount"),
                           ListOfNewItems(),
                           CustomHomeTitle(title: "Top Seals"),
                           ListOfNewItems(),
