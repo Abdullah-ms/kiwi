@@ -40,4 +40,10 @@ class AppLinks {
   static const String cartDelete = "$server/cart/delete.php";
   static const String cartView = "$server/cart/view.php";
   static const String cartGetCount = "$server/cart/getcountitems.php";
+
+  //================= addresses =======================
+  static const String addressAdd = "$server/address/add.php";
+  static const String addressDelete = "$server/address/delete.php";
+  static const String addressView = "$server/address/view.php";
+  static const String addressEdit = "$server/address/edit.php";
 }

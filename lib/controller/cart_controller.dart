@@ -1,22 +1,18 @@
 import 'package:get/get.dart';
-import 'package:kiwi/controller/productsController.dart';
 import '../core/classes/statusRequest.dart';
-import '../core/constants/colors.dart';
 import '../core/functions/handlingData.dart';
 import '../core/services/services.dart';
 import '../data/dataSource/remote/cart_data.dart';
-import 'package:flutter/material.dart';
-import '../data/model/cartModel.dart';
 
 abstract class CartController extends GetxController {
   addToCart(String itemId);
-  deleteFromCart(String itemId);
-  getCartData();
 
+  deleteFromCart(String itemId);
+
+  getCartData();
 }
 
 class CartControllerImp extends CartController {
-
   CartData cartData = CartData(Get.find());
 
   // ال MyServices معمول له حقن لذلك فقط نعمل find
@@ -24,10 +20,10 @@ class CartControllerImp extends CartController {
 
   late StatusRequest statusRequest;
 
-
   List carlList = [];
-  double priceOfAllMealsInCart = 0.0 ;
-  int totalCountOfItemsInCart = 0 ;
+  double priceOfAllMealsInCart = 0.0;
+
+  int totalCountOfItemsInCart = 0;
 
   @override
   addToCart(itemId) async {
@@ -78,7 +74,6 @@ class CartControllerImp extends CartController {
     update();
   }
 
-
   // نستدعي الgetCountItems(){} في الproduct_controller لاننا اصلا يمكننا الوصول اليه وهو الصفحة التي نحتاج فيها ظهور الcount اولا
 
   @override
@@ -90,13 +85,15 @@ class CartControllerImp extends CartController {
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
-      if(response['datacart']['status'] == 'success'){
-        carlList.addAll(response['datacart']['data']);
-        // ال response هو string لذلك يتم تحويلة مباشرة الى int
-        totalCountOfItemsInCart = int.parse(response['countprice']['totalcount']);
-        // ال response هو int ولتحويل ال int الى double يجب تحويلة الى string اولا
-        priceOfAllMealsInCart = double.parse(response['countprice']['totalprice'].toString());
-      }
+        if (response['datacart']['status'] == 'success') {
+          carlList.addAll(response['datacart']['data']);
+          // ال response هو string لذلك يتم تحويلة مباشرة الى int
+          totalCountOfItemsInCart =
+              int.parse(response['countprice']['totalcount']);
+          // ال response هو int ولتحويل ال  intالى double يجب تحويلة الى string اولا
+          priceOfAllMealsInCart =
+              double.parse(response['countprice']['totalprice'].toString());
+        }
       } else {
         statusRequest = StatusRequest.noData;
       }
@@ -104,24 +101,20 @@ class CartControllerImp extends CartController {
     update();
   }
 
-
-  resetVariableValues(){
+  resetVariableValues() {
     carlList.clear();
-    priceOfAllMealsInCart = 0.0 ;
-    totalCountOfItemsInCart = 0 ;
+    priceOfAllMealsInCart = 0.0;
+    totalCountOfItemsInCart = 0;
   }
 
-  refreshPage(){
+  refreshPage() {
     resetVariableValues();
     getCartData();
   }
-
 
   @override
   void onInit() {
     getCartData();
     super.onInit();
   }
-
-
 }

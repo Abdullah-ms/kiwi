@@ -3,6 +3,8 @@ import '../constants/colors.dart';
 
 ThemeData themeEnglish = ThemeData(
   // fontFamily: "PlayfairDisplay",
+  appBarTheme: AppBarTheme(color: AppColors.primaryColor),
+  floatingActionButtonTheme: FloatingActionButtonThemeData(backgroundColor: AppColors.primaryColor) ,
   textTheme: TextTheme(
     displayLarge: TextStyle(
       fontSize: 20,

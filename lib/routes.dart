@@ -1,5 +1,7 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:kiwi/core/constants/appRoutesNames.dart';
+import 'package:kiwi/view/address/add.dart';
+import 'package:kiwi/view/address/view.dart';
 import 'package:kiwi/view/screens/OnBoardingScreen.dart';
 import 'package:kiwi/view/screens/auth/forgetPassword/forgetPassword.dart';
 import 'package:kiwi/view/screens/auth/login.dart';
@@ -38,4 +40,7 @@ List<GetPage<dynamic>>? myGetPages = [
   GetPage(name: AppRoutes.products, page: () => const Products()),
   GetPage(name: AppRoutes.myFavorite, page: () => const MyFavorite()),
   GetPage(name: AppRoutes.cart, page: () => const Cart()),
+
+  GetPage(name: AppRoutes.addressView, page: () => const AddressView()),
+  GetPage(name: AppRoutes.addressAdd, page: () => const AddressAdd()),
 ];

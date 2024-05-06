@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kiwi/controller/settings_controller.dart';
+import 'package:kiwi/core/constants/appRoutesNames.dart';
 import 'package:kiwi/core/constants/assetsImages.dart';
 import 'package:kiwi/core/constants/colors.dart';
 
@@ -49,9 +50,12 @@ class Settings extends StatelessWidget {
                   trailing: Switch(value: true, onChanged: (val) {}),
                 ),
                 Divider(color: AppColors.secondaryColor),
-                const ListTile(
-                  title: Text("Addresses"),
-                  trailing: Icon(Icons.location_on_outlined),
+                ListTile(
+                  title: const Text("Addresses"),
+                  trailing: const Icon(Icons.location_on_outlined),
+                  onTap: (){
+                    Get.toNamed(AppRoutes.addressView);
+                  },
                 ),
                 Divider(color: AppColors.secondaryColor),
                 const ListTile(
