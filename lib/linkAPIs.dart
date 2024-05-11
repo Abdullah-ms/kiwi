@@ -46,4 +46,7 @@ class AppLinks {
   static const String addressDelete = "$server/address/delete.php";
   static const String addressView = "$server/address/view.php";
   static const String addressEdit = "$server/address/edit.php";
+
+  //================= coupon =======================
+  static const String checkCoupon = "$server/coupon/checkCoupon.php";
 }

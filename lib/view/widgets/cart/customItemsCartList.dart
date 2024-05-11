@@ -21,7 +21,7 @@ class CustomItemsCartList extends StatelessWidget {
               flex: 2,
               child: Container(
                 padding: const EdgeInsets.all(10),
-                color: AppColors.primaryColor,
+                color: Colors.transparent,
                 child: CachedNetworkImage(
                   height: 60,
                   width: 50,

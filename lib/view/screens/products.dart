@@ -21,7 +21,7 @@ class Products extends StatelessWidget {
           child: MaterialButton(
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            color: AppColors.secondaryColor,
+            color: AppColors.primaryColor,
             onPressed: () {
               controller.goToCart();
             },

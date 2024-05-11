@@ -3,7 +3,16 @@ import '../constants/colors.dart';
 
 ThemeData themeEnglish = ThemeData(
   // fontFamily: "PlayfairDisplay",
-  appBarTheme: AppBarTheme(color: AppColors.primaryColor),
+  appBarTheme: AppBarTheme(
+    centerTitle: true,
+    elevation: 0,
+    iconTheme: IconThemeData(color: AppColors.primaryColor),
+    backgroundColor: Colors.grey[50],
+    titleTextStyle:TextStyle(
+        color: AppColors.primaryColor,
+        fontWeight: FontWeight.bold,
+        fontSize: 25),
+  ),
   floatingActionButtonTheme: FloatingActionButtonThemeData(backgroundColor: AppColors.primaryColor) ,
   textTheme: TextTheme(
     displayLarge: TextStyle(

@@ -37,5 +37,13 @@ class CartData {
     return response.fold((l) => l, (r) => r);
   }
 
+  checkCoupon(String couponname ) async {
+    var response = await crud.postRequest(AppLinks.checkCoupon, {
+      "couponname" : couponname ,
+    });
+    return response.fold((l) => l, (r) => r);
+  }
+
+
 
 }

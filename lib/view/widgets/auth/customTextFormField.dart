@@ -45,11 +45,11 @@ class CustomTextFormField extends StatelessWidget {
           contentPadding: const EdgeInsets.only(left: 40.0),
           label: Container(
               margin: const EdgeInsets.symmetric(horizontal: 20),
-              child: Text(label)),
+              child: Text(label , style: TextStyle(color: AppColors.primaryColor , fontSize: 18),)),
           floatingLabelBehavior: FloatingLabelBehavior.always,
           suffixIcon: InkWell(
             onTap: onTapIcon,
-            child: Icon(iconData),
+            child: Icon(iconData , color: AppColors.primaryColor,),
           ),
           hintText: hintText,
           hintStyle:

@@ -1,8 +1,11 @@
+import 'dart:io';
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:kiwi/core/services/services.dart';
 import '../classes/appTheme.dart';
+import '../constants/colors.dart';
 
 class LangController extends GetxController {
   Locale? language;
@@ -19,8 +22,59 @@ class LangController extends GetxController {
     Get.updateLocale(locale);
   }
 
+  requestPermissionLocation() async {
+    bool serviceEnabled;
+    LocationPermission permission;
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      return Get.defaultDialog(
+          title: "Alert!",
+          middleText: "Location services are disabled. Please turn on the location service.",
+          actions: [
+            ElevatedButton(
+                onPressed: () {
+                  Get.back();
+                },
+                child: const Text("I get it")),
+          ]
+          );
+  }
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied){
+      permission = await Geolocator.requestPermission();
+    }
+    if (permission == LocationPermission.denied) {
+      return Get.defaultDialog(
+        title: "Alert!",
+        middleText: "Location services are disabled. Please turn on the location service.",
+          actions: [
+            ElevatedButton(
+                onPressed: () {
+                  Get.back();
+                },
+                child: const Text("I get it")),
+          ]
+      );
+    }
+    if (permission == LocationPermission.deniedForever) {
+      // Permissions are denied forever, handle appropriately.
+      return Get.defaultDialog(
+        title: "Alert!",
+        middleText: "You cannot use the application because location permissions are permanently denied.",
+          actions: [
+            ElevatedButton(
+                onPressed: () {
+                  Get.back();
+                },
+                child: const Text("I get it")),
+          ]
+      );
+    }
+  }
+
   @override
   void onInit() {
+    requestPermissionLocation();
     String? sharePrefLang = myServices.sharedPreferences.getString("lang");
     if (sharePrefLang == "ar") {
       language = changeLang("ar");

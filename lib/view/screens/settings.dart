@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:kiwi/controller/settings_controller.dart';
 import 'package:kiwi/core/constants/appRoutesNames.dart';
@@ -31,7 +32,7 @@ class Settings extends StatelessWidget {
                 child: CircleAvatar(
                   radius: 50,
                   backgroundColor: AppColors.primaryColor,
-                  backgroundImage: const AssetImage(MyImages.toot),
+                  child : SvgPicture.asset(MyImages.logo , height: 60,width: 60,color: Colors.white,)
                 ),
               ),
             ),

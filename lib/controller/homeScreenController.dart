@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kiwi/view/screens/homePage.dart';
-import '../core/classes/statusRequest.dart';
-import '../view/screens/myFavorite.dart';
 import '../view/screens/settings.dart';
 
 abstract class HomeScreenController extends GetxController {

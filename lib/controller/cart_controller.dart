@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:kiwi/data/model/couponModel.dart';
 import '../core/classes/statusRequest.dart';
 import '../core/functions/handlingData.dart';
 import '../core/services/services.dart';
@@ -24,6 +26,13 @@ class CartControllerImp extends CartController {
   double priceOfAllMealsInCart = 0.0;
 
   int totalCountOfItemsInCart = 0;
+
+  late TextEditingController controllerCoupon ;
+
+  CouponModel? couponModel ;
+
+  int? couponDiscountInitial = 0 ;
+  String? couponName;
 
   @override
   addToCart(itemId) async {
@@ -112,8 +121,34 @@ class CartControllerImp extends CartController {
     getCartData();
   }
 
+  checkCoupon()async {
+    statusRequest = StatusRequest.loading;
+    update();
+    var response = await cartData.checkCoupon(controllerCoupon.text);
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == "success") {
+        Map<String, dynamic> dataCoupon = response['data'];
+        couponModel = CouponModel.fromJson(dataCoupon);
+        couponDiscountInitial = couponModel!.couponDiscount;
+        couponName = couponModel!.couponName ;
+      }
+      else {
+        // statusRequest = StatusRequest.noData;
+        couponDiscountInitial = 0 ;
+        couponModel = null ;
+      }
+    }
+    update();
+  }
+
+  getTotalPrice (){
+    return (priceOfAllMealsInCart - priceOfAllMealsInCart*couponDiscountInitial!/100);
+  }
+
   @override
   void onInit() {
+    controllerCoupon = TextEditingController();
     getCartData();
     super.onInit();
   }

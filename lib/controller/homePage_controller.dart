@@ -113,7 +113,6 @@ class SearchMixController extends GetxController {
     update();
   }
 
-
   searchItems() async {
     statusRequest = StatusRequest.loading;
     var response = await homeData.getSearchData(search!.text);
