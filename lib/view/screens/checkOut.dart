@@ -49,26 +49,26 @@ class CheckOut extends StatelessWidget {
                   height: 10,
                 ),
                 InkWell(
-                    onTap: () {
-                      controller.choosePaymentMethod("cash");
-                    },
-                    child: CardPaymentMethodCheckout(
-                      title: 'Cash',
-                      isActive:
-                          controller.paymentMethod == "cash" ? true : false,
-                    )),
+                  onTap: () {
+                    controller.choosePaymentMethod("cash");
+                  },
+                  child: CardPaymentMethodCheckout(
+                    title: 'Cash',
+                    isActive: controller.paymentMethod == "cash" ? true : false,
+                  ),
+                ),
                 const SizedBox(
                   height: 10,
                 ),
                 InkWell(
-                    onTap: () {
-                      controller.choosePaymentMethod("card");
-                    },
-                    child: CardPaymentMethodCheckout(
-                      title: 'Payment cards',
-                      isActive:
-                          controller.paymentMethod == "card" ? true : false,
-                    )),
+                  onTap: () {
+                    controller.choosePaymentMethod("card");
+                  },
+                  child: CardPaymentMethodCheckout(
+                    title: 'Payment cards',
+                    isActive: controller.paymentMethod == "card" ? true : false,
+                  ),
+                ),
                 const SizedBox(
                   height: 30,
                 ),
@@ -86,12 +86,13 @@ class CheckOut extends StatelessWidget {
                 Row(
                   children: [
                     InkWell(
-                      onTap: (){
+                      onTap: () {
                         controller.chooseReceiveType("Delivery");
                       },
                       child: CardDeliveryType(
                         title: 'Delivery',
-                        isActive: controller.receiveType == "Delivery" ? true : false ,
+                        isActive:
+                            controller.receiveType == "Delivery" ? true : false,
                         imageName: MyImages.delivery,
                       ),
                     ),
@@ -99,12 +100,13 @@ class CheckOut extends StatelessWidget {
                       width: 10,
                     ),
                     InkWell(
-                      onTap: (){
+                      onTap: () {
                         controller.chooseReceiveType("Drive");
                       },
                       child: CardDeliveryType(
                         title: 'Drive-thru',
-                        isActive: controller.receiveType == "Drive" ? true : false ,
+                        isActive:
+                            controller.receiveType == "Drive" ? true : false,
                         imageName: MyImages.drivethru,
                       ),
                     ),
@@ -113,32 +115,44 @@ class CheckOut extends StatelessWidget {
                 const SizedBox(
                   height: 30,
                 ),
-              if(controller.receiveType == "Delivery")
-                Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-               children: [
-             const Divider(),
-             Text(
-               "Choose Delivery address",
-               style: TextStyle(
-                   color: AppColors.primaryColor,
-                   fontWeight: FontWeight.bold,
-                   fontSize: 16),
-             ),
-             const SizedBox(
-               height: 10,
-             ),
-             ...List.generate(controller.dataAddress.length, (index) => InkWell(
-               onTap: (){
-                 controller.chooseDeliveryAddress(controller.dataAddress[index].addressId.toString()) ;
-               },
-               child: CardDeliveryAddress(
-                 title: "${controller.dataAddress[index].addressName}",
-                 subtitle: "${controller.dataAddress[index].addressCity} / ${controller.dataAddress[index].addressStreet}",
-                 isActive: controller.addressId == controller.dataAddress[index].addressId.toString() ? true : false,
-               ),
-             ),)
-           ],)
+                if (controller.receiveType == "Delivery")
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Divider(),
+                      Text(
+                        "Choose Delivery address",
+                        style: TextStyle(
+                            color: AppColors.primaryColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      ...List.generate(
+                        controller.dataAddress.length,
+                        (index) => InkWell(
+                          onTap: () {
+                            controller.chooseDeliveryAddress(controller
+                                .dataAddress[index].addressId
+                                .toString());
+                          },
+                          child: CardDeliveryAddress(
+                            title:
+                                "${controller.dataAddress[index].addressName}",
+                            subtitle:
+                                "${controller.dataAddress[index].addressCity} / ${controller.dataAddress[index].addressStreet}",
+                            isActive: controller.addressId ==
+                                    controller.dataAddress[index].addressId
+                                        .toString()
+                                ? true
+                                : false,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
               ],
             ),
           ),

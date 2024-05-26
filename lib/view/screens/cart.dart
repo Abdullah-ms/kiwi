@@ -98,7 +98,7 @@ class Cart extends StatelessWidget {
                   child: Container(
                     padding: const EdgeInsets.symmetric(vertical: 15 , horizontal: 50),
                     child: CustomButtonCart(
-                      textButton: 'Checkout',
+                      textButton: 'Order',
                       onPressed: () {
                         Get.toNamed(AppRoutes.checkOut);
                       },
